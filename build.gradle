@@ -2,6 +2,7 @@ plugins {
   id 'org.springframework.boot' version '2.6.3'
   id 'io.spring.dependency-management' version '1.0.11.RELEASE'
   id 'net.ltgt.errorprone' version '2.0.2'
+  id 'com.diffplug.spotless' version '6.3.0'
   id 'checkstyle'
   id 'java'
 }
@@ -37,6 +38,17 @@ checkstyle {
   ]
   maxWarnings = 0
   toolVersion = '9.3'
+}
+
+spotless {
+  if (System.env.CI != 'true') {
+    ratchetFrom 'origin/main'
+  }
+  java {
+    importOrder()
+    removeUnusedImports()
+    googleJavaFormat()
+  }
 }
 
 tasks.named('compileTestJava').configure {

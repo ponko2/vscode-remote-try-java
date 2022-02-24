@@ -12,11 +12,13 @@
     "secretlint": "^4.1.4"
   },
   "scripts": {
-    "fix": "run-s fix:prettier",
+    "fix": "run-s fix:prettier fix:spotless",
     "fix:prettier": "npm run lint:prettier -- --write",
+    "fix:spotless": "./gradlew spotlessApply",
     "lint": "run-p --aggregate-output -c -l lint:*",
     "lint:prettier": "prettier . --check",
     "lint:secretlint": "secretlint \"**/*\"",
+    "lint:spotless": "./gradlew cleanSpotlessJavaCheck spotlessJavaCheck",
     "prepare": "husky install"
   }
 }
