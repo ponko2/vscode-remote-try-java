@@ -21,6 +21,7 @@
   "extensions": [
     "GabrielBB.vscode-lombok",
     "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
     "pivotal.vscode-boot-dev-pack",
     "vscjava.vscode-gradle",
     "vscjava.vscode-java-pack"
