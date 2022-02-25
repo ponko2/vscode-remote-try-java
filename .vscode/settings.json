@@ -3,6 +3,12 @@
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
+  "java.checkstyle.configuration": "${workspaceFolder}/config/checkstyle/checkstyle.xml",
+  "java.checkstyle.properties": {
+    "org.checkstyle.google.suppressionfilter.config": "${workspaceFolder}/config/checkstyle/suppressions.xml",
+    "org.checkstyle.google.suppressionxpathfilter.config": "${workspaceFolder}/config/checkstyle/suppressions-xpath.xml"
+  },
+  "java.checkstyle.version": "9.3",
   "java.completion.favoriteStaticMembers": [
     "org.hamcrest.MatcherAssert.*",
     "org.hamcrest.Matchers.*",
