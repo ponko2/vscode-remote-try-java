@@ -40,6 +40,12 @@ checkstyle {
   toolVersion = '9.3'
 }
 
+tasks.named('compileTestJava').configure {
+  options.errorprone {
+    disable('UnicodeInCode')
+  }
+}
+
 tasks.named('test') {
   useJUnitPlatform()
 }
