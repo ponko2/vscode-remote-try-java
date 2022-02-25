@@ -1,3 +1,5 @@
+import net.ltgt.gradle.errorprone.CheckSeverity
+
 plugins {
   id 'org.springframework.boot' version '2.6.4'
   id 'io.spring.dependency-management' version '1.0.11.RELEASE'
@@ -24,10 +26,12 @@ repositories {
 dependencies {
   implementation 'org.springframework.boot:spring-boot-starter'
   compileOnly 'org.projectlombok:lombok'
+  compileOnly 'com.google.code.findbugs:jsr305:3.0.2'
   developmentOnly 'org.springframework.boot:spring-boot-devtools'
   runtimeOnly 'mysql:mysql-connector-java'
   annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
   annotationProcessor 'org.projectlombok:lombok'
+  annotationProcessor 'com.uber.nullaway:nullaway:0.9.5'
   testImplementation 'org.springframework.boot:spring-boot-starter-test'
   errorprone 'com.google.errorprone:error_prone_core:2.11.0'
 }
@@ -49,6 +53,18 @@ spotless {
     importOrder()
     removeUnusedImports()
     googleJavaFormat()
+  }
+}
+
+tasks.withType(JavaCompile).configureEach {
+  options.errorprone {
+    option('NullAway:AnnotatedPackages', 'com.example')
+  }
+}
+
+tasks.named('compileJava').configure {
+  options.errorprone {
+    error('NullAway')
   }
 }
 

@@ -29,6 +29,7 @@
     "sun.*",
     "jdk.*",
     "org.graalvm.*",
+    "org.springframework.lang.Nullable",
     "io.micrometer.shaded.*"
   ],
   "java.completion.importOrder": ["#", ""],
