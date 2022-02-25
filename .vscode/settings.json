@@ -33,13 +33,15 @@
   ],
   "java.completion.importOrder": ["#", ""],
   "java.configuration.updateBuildConfiguration": "automatic",
-  "java.format.settings.profile": "GoogleStyle",
-  "java.format.settings.url": ".vscode/eclipse-java-google-style.xml",
+  "java.format.enabled": false,
   "java.saveActions.organizeImports": true,
   "[java]": {
-    "editor.defaultFormatter": "redhat.java",
-    "editor.detectIndentation": false,
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2
+    "editor.codeActionsOnSave": {
+      "source.fixAll.spotlessGradle": true
+    },
+    "editor.defaultFormatter": "richardwillis.vscode-spotless-gradle",
+    "files.trimTrailingWhitespace": false,
+    "spotlessGradle.diagnostics.enable": true,
+    "spotlessGradle.format.enable": true
   }
 }

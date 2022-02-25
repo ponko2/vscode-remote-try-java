@@ -23,3 +23,22 @@ jobs:
           fail_on_error: true
           level: error
           tool_name: Prettier
+  spotless:
+    name: Spotless
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: 17
+          distribution: microsoft
+      - uses: gradle/gradle-build-action@v2
+      - run: ./gradlew spotlessApply
+      - uses: reviewdog/action-suggester@v1
+        with:
+          fail_on_error: true
+          level: error
+          tool_name: Spotless
