@@ -7,6 +7,7 @@ plugins {
   java
 
   id("io.spring.dependency-management")
+  id("net.ltgt.errorprone")
 }
 
 group = "com.example"
@@ -39,6 +40,7 @@ dependencies {
   testImplementation("org.springframework.boot:spring-boot-starter-test")
   compileOnly("org.projectlombok:lombok")
   annotationProcessor("org.projectlombok:lombok")
+  errorprone("com.google.errorprone:error_prone_core:2.11.0")
 }
 
 tasks.named<Test>("test") {
