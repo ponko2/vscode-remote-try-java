@@ -11,6 +11,7 @@ plugins {
   checkstyle
 
   id("com.diffplug.spotless")
+  id("com.github.spotbugs")
   id("io.spring.dependency-management")
   id("net.ltgt.errorprone")
 }
@@ -43,11 +44,16 @@ dependencies {
   }
 
   testImplementation("org.springframework.boot:spring-boot-starter-test")
+  compileOnly("com.github.spotbugs:spotbugs-annotations:4.5.3")
   compileOnly("com.google.code.findbugs:jsr305:3.0.2")
+  compileOnly("net.jcip:jcip-annotations:1.0")
   compileOnly("org.projectlombok:lombok")
+  testCompileOnly("com.github.spotbugs:spotbugs-annotations:4.5.3")
+  testCompileOnly("net.jcip:jcip-annotations:1.0")
   annotationProcessor("org.projectlombok:lombok")
   errorprone("com.google.errorprone:error_prone_core:2.11.0")
   errorprone("com.uber.nullaway:nullaway:0.9.5")
+  spotbugsSlf4j("org.slf4j:slf4j-simple:1.7.36")
 }
 
 checkstyle {
