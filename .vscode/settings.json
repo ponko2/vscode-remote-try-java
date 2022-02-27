@@ -24,7 +24,7 @@
     "org.graalvm.*",
     "io.micrometer.shaded.*"
   ],
-  "java.completion.importOrder": ["java", "javax", "com", "org"],
+  "java.completion.importOrder": ["#", ""],
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.format.settings.profile": "GoogleStyle",
   "java.format.settings.url": ".vscode/eclipse-java-google-style.xml",
