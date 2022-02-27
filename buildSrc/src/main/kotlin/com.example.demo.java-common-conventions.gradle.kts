@@ -43,9 +43,11 @@ dependencies {
   }
 
   testImplementation("org.springframework.boot:spring-boot-starter-test")
+  compileOnly("com.google.code.findbugs:jsr305:3.0.2")
   compileOnly("org.projectlombok:lombok")
   annotationProcessor("org.projectlombok:lombok")
   errorprone("com.google.errorprone:error_prone_core:2.11.0")
+  errorprone("com.uber.nullaway:nullaway:0.9.5")
 }
 
 checkstyle {
@@ -68,6 +70,18 @@ spotless {
   }
   kotlinGradle {
     ktfmt()
+  }
+}
+
+tasks.withType<JavaCompile>().configureEach {
+  options.errorprone {
+    option("NullAway:AnnotatedPackages", "com.example")
+  }
+}
+
+tasks.named<JavaCompile>("compileJava").configure {
+  options.errorprone {
+    error("NullAway")
   }
 }
 
