@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "GabrielBB.vscode-lombok",
+    "editorconfig.editorconfig",
     "fwcd.kotlin",
     "ms-vscode-remote.vscode-remote-extensionpack",
     "pivotal.vscode-boot-dev-pack",
