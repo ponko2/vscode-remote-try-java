@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "GabrielBB.vscode-lombok",
+    "fwcd.kotlin",
+    "ms-vscode-remote.vscode-remote-extensionpack",
+    "pivotal.vscode-boot-dev-pack",
+    "vscjava.vscode-gradle",
+    "vscjava.vscode-java-pack"
+  ]
+}
