@@ -26,7 +26,8 @@ public class LinkedList {
     }
   }
 
-  private static @Nullable Node tail(@Nullable Node head) {
+  @Nullable
+  private static Node tail(@Nullable Node head) {
     Node it;
 
     for (it = head; it != null && it.next != null; it = it.next) {}
