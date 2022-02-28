@@ -10,6 +10,7 @@ plugins {
 
   checkstyle
 
+  id("com.diffplug.spotless")
   id("io.spring.dependency-management")
   id("net.ltgt.errorprone")
 }
@@ -54,6 +55,20 @@ checkstyle {
   )
   maxWarnings = 0
   toolVersion = "9.3"
+}
+
+spotless {
+  if (System.getenv("CI") != "true") {
+    ratchetFrom("origin/main")
+  }
+  java {
+    importOrder()
+    removeUnusedImports()
+    googleJavaFormat()
+  }
+  kotlinGradle {
+    ktfmt()
+  }
 }
 
 tasks.named<JavaCompile>("compileTestJava").configure {
