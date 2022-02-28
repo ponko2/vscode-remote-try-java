@@ -14,5 +14,6 @@ repositories {
 
 dependencies {
   implementation("io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE")
+  implementation("net.ltgt.gradle:gradle-errorprone-plugin:2.0.2")
   implementation("org.springframework.boot:spring-boot-gradle-plugin:2.6.4")
 }
