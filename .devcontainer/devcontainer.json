@@ -18,6 +18,7 @@
     "esbenp.prettier-vscode",
     "fwcd.kotlin",
     "pivotal.vscode-boot-dev-pack",
+    "shengchen.vscode-checkstyle",
     "vscjava.vscode-gradle",
     "vscjava.vscode-java-pack"
   ],
