@@ -4,10 +4,12 @@
   "devDependencies": {
     "@commitlint/cli": "^16.2.1",
     "@commitlint/config-conventional": "^16.2.1",
+    "@secretlint/secretlint-rule-preset-recommend": "^4.1.4",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.4",
     "npm-run-all": "^4.1.5",
-    "prettier": "2.5.1"
+    "prettier": "2.5.1",
+    "secretlint": "^4.1.4"
   },
   "private": true,
   "scripts": {
@@ -15,6 +17,7 @@
     "fix:prettier": "npm run lint:prettier -- --write",
     "lint": "run-p --aggregate-output -c -l lint:*",
     "lint:prettier": "prettier . --check",
+    "lint:secretlint": "secretlint \"**/*\"",
     "prepare": "husky install"
   }
 }
