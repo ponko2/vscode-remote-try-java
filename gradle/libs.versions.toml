@@ -6,6 +6,7 @@ spring-boot = "2.6.4"
 errorprone = "com.google.errorprone:error_prone_core:2.11.0"
 gradle-dependency-management = "io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE"
 gradle-errorprone = "net.ltgt.gradle:gradle-errorprone-plugin:2.0.2"
+gradle-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.3.0"
 gradle-spring-boot = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
 hamcrest-optional = "com.github.npathai:hamcrest-optional:2.0.0"
 immutables = { module = "org.immutables:value", version.ref = "immutables" }
