@@ -25,6 +25,15 @@
     "org.graalvm.*",
     "io.micrometer.shaded.*"
   ],
+  "java.completion.importOrder": ["java", "javax", "com", "org"],
   "java.configuration.updateBuildConfiguration": "automatic",
-  "java.saveActions.organizeImports": true
+  "java.format.settings.profile": "GoogleStyle",
+  "java.format.settings.url": ".vscode/eclipse-java-google-style.xml",
+  "java.saveActions.organizeImports": true,
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java",
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  }
 }
