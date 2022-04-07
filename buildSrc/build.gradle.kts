@@ -15,6 +15,7 @@ repositories {
 dependencies {
   implementation(libs.gradle.dependency.management)
   implementation(libs.gradle.errorprone)
+  implementation(libs.gradle.spotbugs)
   implementation(libs.gradle.spotless)
   implementation(libs.gradle.spring.boot)
 }
