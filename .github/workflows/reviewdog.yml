@@ -1,0 +1,25 @@
+name: reviewdog
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  prettier:
+    name: Prettier
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: npm
+      - run: npm ci
+      - run: npx --no -- prettier --write .
+      - uses: reviewdog/action-suggester@v1
+        with:
+          fail_on_error: true
+          level: error
+          tool_name: Prettier
