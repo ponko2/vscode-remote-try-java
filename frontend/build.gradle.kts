@@ -24,7 +24,9 @@ tasks.named<InstallDependenciesTask>("installFrontend").configure {
 
 tasks.named<AssembleTask>("assembleFrontend").configure {
   inputs.files(
+    "index.html",
     "package.json",
+    "vite.config.ts",
     "${rootProject.projectDir}/package.json",
     "${rootProject.projectDir}/package-lock.json"
   )
