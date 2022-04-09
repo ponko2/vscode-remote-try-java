@@ -1,0 +1,30 @@
+{
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "java.completion.favoriteStaticMembers": [
+    "com.github.npathai.hamcrestopt.OptionalMatchers.*",
+    "org.hamcrest.MatcherAssert.*",
+    "org.hamcrest.Matchers.*",
+    "org.junit.Assert.*",
+    "org.junit.Assume.*",
+    "org.junit.jupiter.api.Assertions.*",
+    "org.junit.jupiter.api.Assumptions.*",
+    "org.junit.jupiter.api.DynamicContainer.*",
+    "org.junit.jupiter.api.DynamicTest.*",
+    "org.mockito.Answers.*",
+    "org.mockito.ArgumentMatchers.*",
+    "org.mockito.Mockito.*",
+    "org.springframework.test.util.ReflectionTestUtils.*"
+  ],
+  "java.completion.filteredTypes": [
+    "java.awt.*",
+    "com.sun.*",
+    "sun.*",
+    "jdk.*",
+    "org.graalvm.*",
+    "io.micrometer.shaded.*"
+  ],
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.saveActions.organizeImports": true
+}
