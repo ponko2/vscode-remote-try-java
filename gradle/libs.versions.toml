@@ -11,6 +11,7 @@ gradle-spring-boot = { module = "org.springframework.boot:spring-boot-gradle-plu
 hamcrest-optional = "com.github.npathai:hamcrest-optional:2.0.0"
 immutables = { module = "org.immutables:value", version.ref = "immutables" }
 immutables-annotations = { module = "org.immutables:value-annotations", version.ref = "immutables" }
+nullaway = "com.uber.nullaway:nullaway:0.9.6"
 spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
 
 [plugins]
