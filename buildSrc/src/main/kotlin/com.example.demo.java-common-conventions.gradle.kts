@@ -10,6 +10,8 @@ plugins {
   // Apply the java Plugin to add support for Java.
   java
 
+  checkstyle
+
   id("io.spring.dependency-management")
   id("net.ltgt.errorprone")
 }
@@ -33,6 +35,15 @@ dependencies {
   implementation(platform(library("spring-boot-dependencies")))
   testImplementation("org.springframework.boot:spring-boot-starter-test")
   errorprone(library("errorprone"))
+}
+
+checkstyle {
+  configProperties = mapOf(
+    "org.checkstyle.google.suppressionfilter.config" to rootProject.file("config/checkstyle/suppressions.xml"),
+    "org.checkstyle.google.suppressionxpathfilter.config" to rootProject.file("config/checkstyle/suppressions-xpath.xml"),
+  )
+  maxWarnings = 0
+  toolVersion = "9.3"
 }
 
 tasks.withType<JavaCompile>().configureEach {
