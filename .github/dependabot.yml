@@ -1,0 +1,27 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+      time: "07:00"
+      timezone: Asia/Tokyo
+    commit-message:
+      prefix: ci
+  - package-ecosystem: gradle
+    directory: /
+    schedule:
+      interval: daily
+      time: "07:00"
+      timezone: Asia/Tokyo
+    commit-message:
+      prefix: build
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+      time: "07:00"
+      timezone: Asia/Tokyo
+    commit-message:
+      prefix: build
+    versioning-strategy: increase
