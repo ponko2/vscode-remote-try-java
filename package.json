@@ -2,6 +2,9 @@
   "name": "demo",
   "version": "0.0.1",
   "devDependencies": {
+    "eslint": "^8.16.0",
+    "eslint-config-ponko2": "^21.0.0",
+    "eslint-config-prettier": "^8.5.0",
     "husky": "^8.0.1",
     "is-ci": "^3.0.1",
     "lint-staged": "^12.4.2",
@@ -11,9 +14,11 @@
   },
   "private": true,
   "scripts": {
-    "fix": "run-s fix:prettier",
+    "fix": "run-s fix:eslint fix:prettier",
+    "fix:eslint": "npm run lint:eslint -- --fix",
     "fix:prettier": "npm run lint:prettier -- --write",
     "lint": "run-p --aggregate-output -c -l lint:*",
+    "lint:eslint": "eslint .",
     "lint:prettier": "prettier . --check",
     "prepare": "is-ci || husky install"
   },
