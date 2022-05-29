@@ -5,6 +5,7 @@
 plugins { id("com.example.demo.java-application-conventions") }
 
 dependencies {
+  implementation("org.springframework.boot:spring-boot-starter-validation")
   implementation("org.springframework.boot:spring-boot-starter-web")
   implementation(project(":application"))
   developmentOnly("org.springframework.boot:spring-boot-devtools")

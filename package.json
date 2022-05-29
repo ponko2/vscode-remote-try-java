@@ -16,6 +16,14 @@
     "rimraf": "^3.0.2",
     "secretlint": "^5.2.0"
   },
+  "overrides": {
+    "@storybook/addon-storyshots": {
+      "react-test-renderer": "^18.0.0"
+    },
+    "@storybook/react": {
+      "react-element-to-jsx-string": "^15.0.0"
+    }
+  },
   "private": true,
   "scripts": {
     "fix": "run-s fix:eslint fix:prettier",

@@ -62,7 +62,7 @@ module.exports = {
     },
     {
       files: ["*.ts", "*.tsx"],
-      excludedFiles: ["vite.config.ts"],
+      excludedFiles: ["jest.config.ts", "jest.setup.ts", "vite.config.ts"],
       parserOptions: {
         tsconfigRootDir: __dirname,
         project: ["./tsconfig.json"],
@@ -73,7 +73,41 @@ module.exports = {
       ],
     },
     {
-      files: ["vite.config.ts"],
+      files: ["*.test.ts", "*.test.tsx"],
+      extends: [
+        "plugin:jest/recommended",
+        "plugin:jest/style",
+        "plugin:testing-library/react",
+        "prettier",
+      ],
+      rules: {
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "jest/consistent-test-it": "error",
+        "jest/no-conditional-in-test": "error",
+        "jest/no-duplicate-hooks": "error",
+        "jest/no-test-return-statement": "error",
+        "jest/prefer-called-with": "error",
+        "jest/prefer-comparison-matcher": "error",
+        "jest/prefer-equality-matcher": "error",
+        "jest/prefer-expect-resolves": "error",
+        "jest/prefer-hooks-on-top": "error",
+        "jest/prefer-spy-on": "error",
+        "jest/prefer-strict-equal": "error",
+        "jest/prefer-todo": "error",
+        "jest/require-hook": "error",
+        "jest/require-top-level-describe": "error",
+      },
+    },
+    {
+      files: ["*.stories.ts", "*.stories.tsx"],
+      extends: ["plugin:storybook/recommended"],
+      rules: {
+        "import/no-anonymous-default-export": "off",
+        "import/no-default-export": "off",
+      },
+    },
+    {
+      files: ["jest.config.ts", "vite.config.ts"],
       rules: {
         "import/no-default-export": "off",
       },

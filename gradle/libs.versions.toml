@@ -1,4 +1,5 @@
 [versions]
+immutables = "2.9.0"
 spring-boot = "2.7.0"
 
 [libraries]
@@ -8,11 +9,16 @@ gradle-errorprone = "net.ltgt.gradle:gradle-errorprone-plugin:2.0.2"
 gradle-spotbugs = "com.github.spotbugs.snom:spotbugs-gradle-plugin:5.0.7"
 gradle-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.3.0"
 gradle-spring-boot = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
+hamcrest-optional = "com.github.npathai:hamcrest-optional:2.0.0"
+immutables = { module = "org.immutables:value", version.ref = "immutables" }
+immutables-annotations = { module = "org.immutables:value-annotations", version.ref = "immutables" }
 jcip-annotations = "net.jcip:jcip-annotations:1.0"
 nullaway = "com.uber.nullaway:nullaway:0.9.7"
 slf4j-simple = "org.slf4j:slf4j-simple:1.7.36"
 spotbugs-annotations = "com.github.spotbugs:spotbugs-annotations:4.7.0"
 spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
+spring-boot-mybatis = "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2"
+sulky-ulid = "de.huxhorn.sulky:de.huxhorn.sulky.ulid:8.3.0"
 
 [plugins]
 frontend = "org.siouan.frontend-jdk11:6.0.0"

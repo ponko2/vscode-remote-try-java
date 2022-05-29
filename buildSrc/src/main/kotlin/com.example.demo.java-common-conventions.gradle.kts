@@ -35,11 +35,14 @@ repositories {
 
 dependencies {
   implementation(platform(library("spring-boot-dependencies")))
+  annotationProcessor(library("immutables"))
+  compileOnly(library("immutables-annotations"))
   compileOnly(library("jcip-annotations"))
   compileOnly(library("spotbugs-annotations"))
   testCompileOnly(library("jcip-annotations"))
   testCompileOnly(library("spotbugs-annotations"))
   testImplementation("org.springframework.boot:spring-boot-starter-test")
+  testImplementation(library("hamcrest-optional"))
   errorprone(library("errorprone"))
   errorprone(library("nullaway"))
   spotbugsSlf4j(library("slf4j-simple"))
