@@ -5,9 +5,13 @@ spring-boot = "2.7.0"
 errorprone = "com.google.errorprone:error_prone_core:2.14.0"
 gradle-dependency-management = "io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE"
 gradle-errorprone = "net.ltgt.gradle:gradle-errorprone-plugin:2.0.2"
+gradle-spotbugs = "com.github.spotbugs.snom:spotbugs-gradle-plugin:5.0.7"
 gradle-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.3.0"
 gradle-spring-boot = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
+jcip-annotations = "net.jcip:jcip-annotations:1.0"
 nullaway = "com.uber.nullaway:nullaway:0.9.7"
+slf4j-simple = "org.slf4j:slf4j-simple:1.7.36"
+spotbugs-annotations = "com.github.spotbugs:spotbugs-annotations:4.7.0"
 spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
 
 [plugins]
