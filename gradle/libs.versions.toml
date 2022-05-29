@@ -7,6 +7,7 @@ gradle-dependency-management = "io.spring.gradle:dependency-management-plugin:1.
 gradle-errorprone = "net.ltgt.gradle:gradle-errorprone-plugin:2.0.2"
 gradle-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.3.0"
 gradle-spring-boot = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
+nullaway = "com.uber.nullaway:nullaway:0.9.7"
 spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
 
 [plugins]

@@ -36,6 +36,7 @@ dependencies {
   implementation(platform(library("spring-boot-dependencies")))
   testImplementation("org.springframework.boot:spring-boot-starter-test")
   errorprone(library("errorprone"))
+  errorprone(library("nullaway"))
 }
 
 checkstyle {
@@ -66,17 +67,19 @@ tasks.withType<JavaCompile>().configureEach {
   options.errorprone {
     disableWarningsInGeneratedCode.set(true)
     excludedPaths.set(".*/build/generated/.*")
+    option("NullAway:AnnotatedPackages", "com.example")
+  }
+}
+
+tasks.named<JavaCompile>("compileJava").configure {
+  options.errorprone {
+    error("NullAway")
   }
 }
 
 tasks.named<JavaCompile>("compileTestJava").configure {
   options.errorprone {
-    disable("UnicodeInCode")
-  }
-}
-
-tasks.named<JavaCompile>("compileTestJava").configure {
-  options.errorprone {
+    disable("NullAway")
     disable("UnicodeInCode")
   }
 }
