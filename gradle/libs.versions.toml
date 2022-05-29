@@ -1,0 +1,10 @@
+[versions]
+spring-boot = "2.7.0"
+
+[libraries]
+gradle-dependency-management = "io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE"
+gradle-spring-boot = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
+spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
+
+[plugins]
+frontend = "org.siouan.frontend-jdk11:6.0.0"
