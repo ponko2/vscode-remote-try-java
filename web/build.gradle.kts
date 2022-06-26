@@ -23,3 +23,8 @@ tasks.register<Copy>("processFrontendResources") {
 tasks.named<ProcessResources>("processResources").configure {
   dependsOn(tasks.named("processFrontendResources"))
 }
+
+openApiGenerate {
+  apiPackage.set("com.example.demo.web.api")
+  modelPackage.set("com.example.demo.web.model")
+}

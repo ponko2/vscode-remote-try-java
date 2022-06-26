@@ -103,5 +103,5 @@ tasks.withType<Test>().configureEach {
 }
 
 sourceSets.main {
-  java.srcDirs("src/main/java", "build/generated/sources/annotationProcessor/java/main")
+  java.srcDir("${project.buildDir}/generated/sources/annotationProcessor/java/main")
 }

@@ -1,0 +1,147 @@
+openapi: 3.0.0
+info:
+  title: Todos API
+  version: 1.0.0
+servers:
+  - url: /
+paths:
+  /todos:
+    delete:
+      operationId: deleteTodos
+      responses:
+        "204":
+          description: Successful operation
+      summary: Archive completed todos
+      tags:
+        - todo
+    get:
+      operationId: getTodos
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/Todo"
+                type: array
+          description: Successful operation
+      summary: List all todos
+      tags:
+        - todo
+    post:
+      operationId: postTodos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/postTodosRequest"
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Todo"
+          description: Successful operation
+      summary: Create a todo
+      tags:
+        - todo
+  /todos/{todoId}:
+    delete:
+      operationId: deleteTodo
+      parameters:
+        - explode: false
+          in: path
+          name: todoId
+          required: true
+          schema:
+            format: int64
+            type: integer
+          style: simple
+      responses:
+        "204":
+          description: Successful operation
+      summary: Delete a todo
+      tags:
+        - todo
+    get:
+      operationId: getTodoById
+      parameters:
+        - explode: false
+          in: path
+          name: todoId
+          required: true
+          schema:
+            format: int64
+            type: integer
+          style: simple
+      responses:
+        "200":
+          description: Successful operation
+      summary: Get a todo
+      tags:
+        - todo
+    put:
+      operationId: putTodo
+      parameters:
+        - explode: false
+          in: path
+          name: todoId
+          required: true
+          schema:
+            format: int64
+            type: integer
+          style: simple
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/putTodoRequest"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Todo"
+          description: Successful operation
+      summary: Update a todo
+      tags:
+        - todo
+components:
+  schemas:
+    Todo:
+      example:
+        id: 1
+        title: title
+        completed: false
+      properties:
+        id:
+          format: int64
+          type: integer
+        title:
+          type: string
+        completed:
+          type: boolean
+      required:
+        - completed
+        - id
+        - title
+      type: object
+    postTodosRequest:
+      properties:
+        title:
+          type: string
+      required:
+        - title
+      type: object
+    putTodoRequest:
+      properties:
+        title:
+          type: string
+        completed:
+          type: boolean
+      required:
+        - completed
+        - title
+      type: object

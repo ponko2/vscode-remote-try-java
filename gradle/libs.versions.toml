@@ -1,17 +1,20 @@
 [versions]
 immutables = "2.9.0"
 spring-boot = "2.7.0"
+swagger = "2.2.1"
 
 [libraries]
 errorprone = "com.google.errorprone:error_prone_core:2.14.0"
 gradle-dependency-management = "io.spring.gradle:dependency-management-plugin:1.0.11.RELEASE"
 gradle-errorprone = "net.ltgt.gradle:gradle-errorprone-plugin:2.0.2"
+gradle-openapi-generator = "org.openapitools:openapi-generator-gradle-plugin:6.0.0"
 gradle-spotbugs = "com.github.spotbugs.snom:spotbugs-gradle-plugin:5.0.8"
 gradle-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.3.0"
 gradle-spring-boot = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
 hamcrest-optional = "com.github.npathai:hamcrest-optional:2.0.0"
 immutables = { module = "org.immutables:value", version.ref = "immutables" }
 immutables-annotations = { module = "org.immutables:value-annotations", version.ref = "immutables" }
+jackson-databind-nullable = "org.openapitools:jackson-databind-nullable:0.2.3"
 jcip-annotations = "net.jcip:jcip-annotations:1.0"
 nullaway = "com.uber.nullaway:nullaway:0.9.7"
 slf4j-simple = "org.slf4j:slf4j-simple:1.7.36"
@@ -19,6 +22,7 @@ spotbugs-annotations = "com.github.spotbugs:spotbugs-annotations:4.7.0"
 spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
 spring-boot-mybatis = "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2"
 sulky-ulid = "de.huxhorn.sulky:de.huxhorn.sulky.ulid:8.3.0"
+swagger-annotations = { module = "io.swagger.core.v3:swagger-annotations", version.ref = "swagger" }
 
 [plugins]
 frontend = "org.siouan.frontend-jdk11:6.0.0"

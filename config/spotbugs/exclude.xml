@@ -2,6 +2,8 @@
 <FindBugsFilter>
   <Match>
     <Or>
+      <Source name="~.*/build/generated/.*"/>
+      <Source name="~.*\\build\\generated\\.*"/>
       <Bug pattern="EI_EXPOSE_REP"/>
       <Bug pattern="EI_EXPOSE_REP2"/>
     </Or>
