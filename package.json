@@ -4,7 +4,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
-    "@secretlint/secretlint-rule-preset-recommend": "^5.2.0",
+    "@secretlint/secretlint-rule-preset-recommend": "^5.2.1",
     "eslint": "^8.18.0",
     "eslint-config-ponko2": "^21.0.0",
     "eslint-config-prettier": "^8.5.0",
