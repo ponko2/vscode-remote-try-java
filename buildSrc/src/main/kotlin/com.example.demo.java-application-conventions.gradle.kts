@@ -15,6 +15,7 @@ plugins {
 dependencies {
   compileOnly(library("jackson-databind-nullable"))
   compileOnly(library("swagger-annotations"))
+  compileOnly(library("swagger-models"))
 }
 
 tasks.named<JavaCompile>("compileJava").configure { dependsOn(tasks.named("openApiGenerate")) }
@@ -23,7 +24,7 @@ openApiGenerate {
   generatorName.set("spring")
   inputSpec.set("${project.rootDir}/specs/openapi.yml")
   outputDir.set("${project.buildDir}/generated")
-  configOptions.set(mapOf("delegatePattern" to "false", "interfaceOnly" to "true"))
+  configOptions.set(mapOf("delegatePattern" to "true", "interfaceOnly" to "false"))
 }
 
 sourceSets.main {

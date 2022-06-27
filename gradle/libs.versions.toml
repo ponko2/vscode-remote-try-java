@@ -23,6 +23,7 @@ spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-depe
 spring-boot-mybatis = "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2"
 sulky-ulid = "de.huxhorn.sulky:de.huxhorn.sulky.ulid:8.3.0"
 swagger-annotations = { module = "io.swagger.core.v3:swagger-annotations", version.ref = "swagger" }
+swagger-models = { module = "io.swagger.core.v3:swagger-models", version.ref = "swagger" }
 
 [plugins]
 frontend = "org.siouan.frontend-jdk11:6.0.0"

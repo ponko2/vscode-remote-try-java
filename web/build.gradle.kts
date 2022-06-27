@@ -26,5 +26,6 @@ tasks.named<ProcessResources>("processResources").configure {
 
 openApiGenerate {
   apiPackage.set("com.example.demo.web.api")
+  invokerPackage.set("com.example.demo.web.invoker")
   modelPackage.set("com.example.demo.web.model")
 }
