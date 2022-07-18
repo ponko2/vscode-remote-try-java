@@ -5,7 +5,7 @@
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "@secretlint/secretlint-rule-preset-recommend": "^5.2.3",
-    "eslint": "^8.19.0",
+    "eslint": "^8.20.0",
     "eslint-config-ponko2": "^21.0.0",
     "eslint-config-prettier": "^8.5.0",
     "husky": "^8.0.1",
