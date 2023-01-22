@@ -1,4 +1,9 @@
-import { Outlet, ReactLocation, Router } from "@tanstack/react-location";
+import {
+  createRouteConfig,
+  Outlet,
+  ReactRouter,
+  RouterProvider,
+} from "@tanstack/react-router";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import styles from "./App.module.css";
@@ -6,7 +11,43 @@ import { TodoFooter } from "./containers/organisms/TodoFooter";
 import { TodoHeader } from "./containers/organisms/TodoHeader";
 import { TodoList } from "./containers/organisms/TodoList";
 
-const location = new ReactLocation();
+const rootRoute = createRouteConfig({
+  component: () => (
+    <section className={styles.todoapp}>
+      <TodoHeader />
+      <Outlet />
+      <TodoFooter />
+    </section>
+  ),
+});
+
+const indexRoute = rootRoute.createRoute({
+  path: "/",
+  component: () => <TodoList select={(data) => data.todos} />,
+});
+
+const activeRoute = rootRoute.createRoute({
+  path: "/active",
+  component: () => (
+    <TodoList select={(data) => data.todos.filter((todo) => !todo.completed)} />
+  ),
+});
+
+const completedRoute = rootRoute.createRoute({
+  path: "/completed",
+  component: () => (
+    <TodoList select={(data) => data.todos.filter((todo) => todo.completed)} />
+  ),
+});
+
+const routeConfig = rootRoute.addChildren([
+  indexRoute,
+  activeRoute,
+  completedRoute,
+]);
+
+const router = new ReactRouter({ routeConfig });
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -18,37 +59,7 @@ const queryClient = new QueryClient({
 export function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router
-        location={location}
-        routes={[
-          {
-            path: "/",
-            element: <TodoList select={(data) => data.todos} />,
-          },
-          {
-            path: "active",
-            element: (
-              <TodoList
-                select={(data) => data.todos.filter((todo) => !todo.completed)}
-              />
-            ),
-          },
-          {
-            path: "completed",
-            element: (
-              <TodoList
-                select={(data) => data.todos.filter((todo) => todo.completed)}
-              />
-            ),
-          },
-        ]}
-      >
-        <section className={styles.todoapp}>
-          <TodoHeader />
-          <Outlet />
-          <TodoFooter />
-        </section>
-      </Router>
+      <RouterProvider router={router} />
       <ReactQueryDevtools initialIsOpen />
     </QueryClientProvider>
   );
