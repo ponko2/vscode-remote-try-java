@@ -1,7 +1,8 @@
 import {
-  createRouteConfig,
   Outlet,
   ReactRouter,
+  RootRoute,
+  Route,
   RouterProvider,
 } from "@tanstack/react-router";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -11,7 +12,7 @@ import { TodoFooter } from "./containers/organisms/TodoFooter";
 import { TodoHeader } from "./containers/organisms/TodoHeader";
 import { TodoList } from "./containers/organisms/TodoList";
 
-const rootRoute = createRouteConfig({
+const rootRoute = new RootRoute({
   component: () => (
     <section className={styles.todoapp}>
       <TodoHeader />
@@ -21,32 +22,35 @@ const rootRoute = createRouteConfig({
   ),
 });
 
-const indexRoute = rootRoute.createRoute({
+const indexRoute = new Route({
+  getParentRoute: () => rootRoute,
   path: "/",
   component: () => <TodoList select={(data) => data.todos} />,
 });
 
-const activeRoute = rootRoute.createRoute({
+const activeRoute = new Route({
+  getParentRoute: () => rootRoute,
   path: "/active",
   component: () => (
     <TodoList select={(data) => data.todos.filter((todo) => !todo.completed)} />
   ),
 });
 
-const completedRoute = rootRoute.createRoute({
+const completedRoute = new Route({
+  getParentRoute: () => rootRoute,
   path: "/completed",
   component: () => (
     <TodoList select={(data) => data.todos.filter((todo) => todo.completed)} />
   ),
 });
 
-const routeConfig = rootRoute.addChildren([
+const routeTree = rootRoute.addChildren([
   indexRoute,
   activeRoute,
   completedRoute,
 ]);
 
-const router = new ReactRouter({ routeConfig });
+const router = new ReactRouter({ routeTree });
 
 const queryClient = new QueryClient({
   defaultOptions: {
