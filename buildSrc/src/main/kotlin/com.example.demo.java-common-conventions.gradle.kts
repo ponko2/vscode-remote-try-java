@@ -54,7 +54,7 @@ checkstyle {
     "org.checkstyle.google.suppressionxpathfilter.config" to rootProject.file("config/checkstyle/suppressions-xpath.xml"),
   )
   maxWarnings = 0
-  toolVersion = "9.3"
+  toolVersion = "10.7.0"
 }
 
 spotbugs {
