@@ -2,8 +2,8 @@
   "name": "demo",
   "version": "0.0.1",
   "devDependencies": {
-    "@commitlint/cli": "^17.4.2",
-    "@commitlint/config-conventional": "^17.4.2",
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
     "@secretlint/secretlint-rule-preset-recommend": "^6.2.3",
     "eslint": "^8.34.0",
     "eslint-config-ponko2": "^21.0.0",
