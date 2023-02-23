@@ -5,7 +5,7 @@ import {
   useTodosCount,
 } from "../../hooks/todos";
 
-export const TodoFooter = (): JSX.Element => {
+export function TodoFooter(): JSX.Element {
   const { data: todosCount = 0 } = useTodosCount();
   const { data: completedCount = 0 } = useCompletedCount();
   const clearCompleted = useClearCompleted();
@@ -16,4 +16,4 @@ export const TodoFooter = (): JSX.Element => {
       clearCompleted={clearCompleted.mutate}
     ></Component>
   );
-};
+}

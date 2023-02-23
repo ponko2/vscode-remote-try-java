@@ -11,7 +11,7 @@ type Props = {
   select?: (data: TodoIndexResponseModel) => TodoResponseModel[];
 };
 
-export const TodoList = ({ select }: Props): JSX.Element => {
+export function TodoList({ select }: Props): JSX.Element {
   const { data: todos = [] } = useTodos(select);
   const editTodo = useEditTodo();
   const toggleTodo = useToggleTodo();
@@ -24,4 +24,4 @@ export const TodoList = ({ select }: Props): JSX.Element => {
       deleteTodo={deleteTodo.mutate}
     />
   );
-};
+}

@@ -6,7 +6,7 @@ import {
   useToggleAllTodo,
 } from "../../hooks/todos";
 
-export const TodoHeader = (): JSX.Element => {
+export function TodoHeader(): JSX.Element {
   const { data: todosCount = 0 } = useTodosCount();
   const { data: completedCount = 0 } = useCompletedCount();
   const addTodo = useAddTodo();
@@ -19,4 +19,4 @@ export const TodoHeader = (): JSX.Element => {
       toggleAllTodo={toggleAllTodo.mutate}
     ></Component>
   );
-};
+}
