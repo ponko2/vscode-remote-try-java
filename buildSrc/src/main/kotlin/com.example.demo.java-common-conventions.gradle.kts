@@ -54,7 +54,7 @@ checkstyle {
     "org.checkstyle.google.suppressionxpathfilter.config" to rootProject.file("config/checkstyle/suppressions-xpath.xml"),
   )
   maxWarnings = 0
-  toolVersion = "10.7.0"
+  toolVersion = "10.8.0"
 }
 
 spotbugs {
@@ -77,6 +77,7 @@ spotless {
 }
 
 tasks.withType<JavaCompile>().configureEach {
+  options.isFork = true
   options.errorprone {
     disableWarningsInGeneratedCode.set(true)
     excludedPaths.set(".*/build/generated/.*")

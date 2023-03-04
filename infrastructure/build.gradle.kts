@@ -10,5 +10,5 @@ dependencies {
   implementation("org.flywaydb:flyway-mysql")
   implementation(libs.spring.boot.mybatis)
   implementation(libs.sulky.ulid)
-  runtimeOnly("mysql:mysql-connector-java")
+  runtimeOnly("com.mysql:mysql-connector-j")
 }
