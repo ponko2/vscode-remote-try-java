@@ -1,6 +1,6 @@
 [versions]
 immutables = "2.9.3"
-spring-boot = "3.0.4"
+spring-boot = "3.0.5"
 
 [libraries]
 errorprone = "com.google.errorprone:error_prone_core:2.18.0"
