@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { TodoResponseModel } from "../../models/todos";
+import type { TodoResponseModel } from "../../models/todos";
 import { TodoItem } from "./TodoItem";
 
 describe("<TodoItem/>", () => {

@@ -14,7 +14,7 @@ import { TodoList } from "./containers/organisms/TodoList";
 
 const rootRoute = new RootRoute({
   component: () => (
-    <section className={styles.todoapp}>
+    <section className={styles["todoapp"]}>
       <TodoHeader />
       <Outlet />
       <TodoFooter />

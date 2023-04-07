@@ -27,6 +27,7 @@
     "lint:secretlint": "secretlint \"**/*\"",
     "prepare": "is-ci || husky install"
   },
+  "type": "module",
   "workspaces": [
     "frontend"
   ]

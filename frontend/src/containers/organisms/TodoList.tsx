@@ -5,7 +5,10 @@ import {
   useTodos,
   useToggleTodo,
 } from "../../hooks/todos";
-import { TodoIndexResponseModel, TodoResponseModel } from "../../models/todos";
+import type {
+  TodoIndexResponseModel,
+  TodoResponseModel,
+} from "../../models/todos";
 
 type Props = {
   select?: (data: TodoIndexResponseModel) => TodoResponseModel[];

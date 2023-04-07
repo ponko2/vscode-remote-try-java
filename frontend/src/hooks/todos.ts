@@ -1,12 +1,7 @@
-import {
-  useMutation,
-  UseMutationResult,
-  useQuery,
-  useQueryClient,
-  UseQueryResult,
-} from "react-query";
+import type { UseMutationResult, UseQueryResult } from "react-query";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 import { api } from "../api";
-import {
+import type {
   TodoIndexResponseModel,
   TodoPatchRequestModel,
   TodoPostResponseModel,
@@ -19,7 +14,11 @@ const fetchTodos = async (): Promise<TodoIndexResponseModel> => {
 export function useTodos<TData = TodoIndexResponseModel, TError = Error>(
   select?: (todos: TodoIndexResponseModel) => TData
 ): UseQueryResult<TData, TError> {
-  return useQuery("todos", fetchTodos, { select });
+  return useQuery(
+    "todos",
+    fetchTodos,
+    typeof select === "undefined" ? {} : { select }
+  );
 }
 
 export function useTodosCount(): UseQueryResult<number, Error> {
@@ -46,18 +45,19 @@ export function useAddTodo(): UseMutationResult<
       await queryClient.cancelQueries("todos");
       const previousData =
         queryClient.getQueryData<TodoIndexResponseModel>("todos");
-      if (previousData) {
-        queryClient.setQueryData<TodoIndexResponseModel>("todos", {
-          ...previousData,
-          todos: [
-            ...previousData.todos,
-            { id: Math.random().toString(), title: newTitle, completed: false },
-          ],
-        });
+      if (typeof previousData === "undefined") {
+        return {};
       }
+      queryClient.setQueryData<TodoIndexResponseModel>("todos", {
+        ...previousData,
+        todos: [
+          ...previousData.todos,
+          { id: Math.random().toString(), title: newTitle, completed: false },
+        ],
+      });
       return { previousData };
     },
-    onError(error, variables, context) {
+    onError(_error, _variables, context) {
       if (context?.previousData) {
         queryClient.setQueryData("todos", context.previousData);
       }
@@ -101,20 +101,21 @@ export function useEditTodo(): UseMutationResult<
       await queryClient.cancelQueries("todos");
       const previousData =
         queryClient.getQueryData<TodoIndexResponseModel>("todos");
-      if (previousData) {
-        queryClient.setQueryData<TodoIndexResponseModel>("todos", {
-          ...previousData,
-          todos: previousData.todos.map((todo) => {
-            if (todo.id === newTodo.id) {
-              return newTodo;
-            }
-            return todo;
-          }),
-        });
+      if (typeof previousData === "undefined") {
+        return {};
       }
+      queryClient.setQueryData<TodoIndexResponseModel>("todos", {
+        ...previousData,
+        todos: previousData.todos.map((todo) => {
+          if (todo.id === newTodo.id) {
+            return newTodo;
+          }
+          return todo;
+        }),
+      });
       return { previousData };
     },
-    onError(error, variables, context) {
+    onError(_error, _variables, context) {
       if (context?.previousData) {
         queryClient.setQueryData("todos", context.previousData);
       }
@@ -141,20 +142,21 @@ export function useToggleTodo(): UseMutationResult<
       await queryClient.cancelQueries("todos");
       const previousData =
         queryClient.getQueryData<TodoIndexResponseModel>("todos");
-      if (previousData) {
-        queryClient.setQueryData<TodoIndexResponseModel>("todos", {
-          ...previousData,
-          todos: previousData.todos.map((todo) => {
-            if (todo.id === newTodo.id) {
-              return { ...todo, completed: !todo.completed };
-            }
-            return todo;
-          }),
-        });
+      if (typeof previousData === "undefined") {
+        return {};
       }
+      queryClient.setQueryData<TodoIndexResponseModel>("todos", {
+        ...previousData,
+        todos: previousData.todos.map((todo) => {
+          if (todo.id === newTodo.id) {
+            return { ...todo, completed: !todo.completed };
+          }
+          return todo;
+        }),
+      });
       return { previousData };
     },
-    onError(error, variables, context) {
+    onError(_error, _variables, context) {
       if (context?.previousData) {
         queryClient.setQueryData("todos", context.previousData);
       }

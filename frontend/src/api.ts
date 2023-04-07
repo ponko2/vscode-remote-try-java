@@ -1,4 +1,5 @@
-import ky, { HTTPError } from "ky";
+import type { HTTPError } from "ky";
+import ky from "ky";
 
 export const api = ky.extend({
   hooks: {
