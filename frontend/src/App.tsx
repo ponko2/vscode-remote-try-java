@@ -1,10 +1,10 @@
 import {
   Outlet,
-  ReactRouter,
   RootRoute,
   Route,
+  Router,
   RouterProvider,
-} from "@tanstack/react-router";
+} from "@tanstack/router";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import styles from "./App.module.css";
@@ -50,7 +50,7 @@ const routeTree = rootRoute.addChildren([
   completedRoute,
 ]);
 
-const router = new ReactRouter({ routeTree });
+const router = new Router({ routeTree });
 
 const queryClient = new QueryClient({
   defaultOptions: {
