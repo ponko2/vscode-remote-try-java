@@ -16,6 +16,10 @@
     "rimraf": "^5.0.1",
     "secretlint": "^7.0.3"
   },
+  "engines": {
+    "node": "^18.16.1"
+  },
+  "packageManager": "npm@9.5.1",
   "private": true,
   "scripts": {
     "fix": "run-s fix:eslint fix:prettier",

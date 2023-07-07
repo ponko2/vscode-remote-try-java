@@ -21,4 +21,4 @@ spring-boot-mybatis = "org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2
 sulky-ulid = "de.huxhorn.sulky:de.huxhorn.sulky.ulid:8.3.0"
 
 [plugins]
-frontend = "org.siouan.frontend-jdk11:6.0.0"
+frontend = "org.siouan.frontend-jdk11:7.0.0"
