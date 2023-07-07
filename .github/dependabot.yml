@@ -25,3 +25,34 @@ updates:
     commit-message:
       prefix: build
     versioning-strategy: increase
+    groups:
+      babel:
+        patterns:
+          - "@babel/*"
+          - babel-loader
+      commitlint:
+        patterns:
+          - "@commitlint/*"
+      jest:
+        patterns:
+          - babel-jest
+          - jest
+          - jest-environment-jsdom
+      secretlint:
+        patterns:
+          - "@secretlint/*"
+          - secretlint
+      storybook:
+        patterns:
+          - "@storybook/*"
+          - storybook
+      types:
+        patterns:
+          - "@types/*"
+      typescript-eslint:
+        patterns:
+          - "@typescript-eslint/*"
+      vite:
+        patterns:
+          - "@vitejs/plugin-react"
+          - vite
