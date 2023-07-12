@@ -12,12 +12,12 @@ const fetchTodos = async (): Promise<TodoIndexResponseModel> => {
 };
 
 export function useTodos<TData = TodoIndexResponseModel, TError = Error>(
-  select?: (todos: TodoIndexResponseModel) => TData
+  select?: (todos: TodoIndexResponseModel) => TData,
 ): UseQueryResult<TData, TError> {
   return useQuery(
     "todos",
     fetchTodos,
-    typeof select === "undefined" ? {} : { select }
+    typeof select === "undefined" ? {} : { select },
   );
 }
 
@@ -168,7 +168,7 @@ export function useToggleTodo(): UseMutationResult<
 }
 
 const toggleAllTodo = async (
-  todos: TodoPatchRequestModel[] = []
+  todos: TodoPatchRequestModel[] = [],
 ): Promise<void> => {
   const completed = !todos.every((todo) => todo.completed);
   await Promise.all(todos.map((todo) => editTodo({ ...todo, completed })));
@@ -185,10 +185,10 @@ export function useToggleAllTodo(): UseMutationResult<void, Error, void> {
 }
 
 const clearCompleted = async (
-  todos: TodoPatchRequestModel[] = []
+  todos: TodoPatchRequestModel[] = [],
 ): Promise<void> => {
   await Promise.all(
-    todos.filter(({ completed }) => completed).map(({ id }) => deleteTodo(id))
+    todos.filter(({ completed }) => completed).map(({ id }) => deleteTodo(id)),
   );
 };
 

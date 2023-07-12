@@ -18,7 +18,7 @@ describe("<TodoItem/>", () => {
         editTodo={editTodo}
         deleteTodo={deleteTodo}
         toggleTodo={toggleTodo}
-      />
+      />,
     );
 
     expect(asFragment()).toMatchInlineSnapshot(`
@@ -111,7 +111,7 @@ describe("<TodoItem/>", () => {
         editTodo={editTodo}
         deleteTodo={deleteTodo}
         toggleTodo={toggleTodo}
-      />
+      />,
     );
 
     fireEvent.doubleClick(screen.getByText("foo"));
@@ -143,7 +143,7 @@ describe("<TodoItem/>", () => {
         editTodo={editTodo}
         deleteTodo={deleteTodo}
         toggleTodo={toggleTodo}
-      />
+      />,
     );
 
     fireEvent.doubleClick(screen.getByText("foo"));
@@ -171,7 +171,7 @@ describe("<TodoItem/>", () => {
         editTodo={editTodo}
         deleteTodo={deleteTodo}
         toggleTodo={toggleTodo}
-      />
+      />,
     );
 
     fireEvent.click(screen.getByRole("button"));
@@ -197,7 +197,7 @@ describe("<TodoItem/>", () => {
         editTodo={editTodo}
         deleteTodo={deleteTodo}
         toggleTodo={toggleTodo}
-      />
+      />,
     );
 
     fireEvent.click(screen.getByRole("checkbox"));
