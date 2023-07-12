@@ -26,3 +26,4 @@ jobs:
           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue"
           "npm run build-storybook --workspaces --quiet && npx http-server frontend/storybook-static --port 6006 --silent"
           "npx wait-on http://127.0.0.1:6006 && npm run test-storybook --workspaces -- --url=http://127.0.0.1:6006"
+      - run: npm run lint
