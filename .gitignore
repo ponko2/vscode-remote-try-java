@@ -1,4 +1,5 @@
 .gradle
+.frontend-gradle-plugin/
 build/
 node_modules/
 !gradle/wrapper/gradle-wrapper.jar

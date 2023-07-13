@@ -1,19 +1,19 @@
 import org.siouan.frontendgradleplugin.infrastructure.gradle.AssembleTask
-import org.siouan.frontendgradleplugin.infrastructure.gradle.InstallDependenciesTask
+import org.siouan.frontendgradleplugin.infrastructure.gradle.InstallFrontendTask
 
 plugins {
   alias(libs.plugins.frontend)
 }
 
 frontend {
-  nodeDistributionProvided.set(true)
+  nodeVersion.set("18.16.1")
   packageJsonDirectory.set(rootProject.projectDir)
   assembleScript.set("-w frontend run build")
   cleanScript.set("-w frontend run clean")
   installScript.set("ci")
 }
 
-tasks.named<InstallDependenciesTask>("installFrontend").configure {
+tasks.named<InstallFrontendTask>("installFrontend").configure {
   inputs.files(
     "package.json",
     "${rootProject.projectDir}/package.json",
