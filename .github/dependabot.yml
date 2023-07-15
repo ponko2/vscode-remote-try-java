@@ -6,6 +6,9 @@ updates:
       interval: daily
       time: "07:00"
       timezone: Asia/Tokyo
+    open-pull-requests-limit: 10
+    reviewers:
+      - ponko2
     commit-message:
       prefix: ci
   - package-ecosystem: gradle
@@ -14,6 +17,9 @@ updates:
       interval: daily
       time: "07:00"
       timezone: Asia/Tokyo
+    open-pull-requests-limit: 10
+    reviewers:
+      - ponko2
     commit-message:
       prefix: build
   - package-ecosystem: npm
@@ -22,6 +28,9 @@ updates:
       interval: daily
       time: "07:00"
       timezone: Asia/Tokyo
+    open-pull-requests-limit: 10
+    reviewers:
+      - ponko2
     commit-message:
       prefix: build
     versioning-strategy: increase
