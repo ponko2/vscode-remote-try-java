@@ -4,7 +4,7 @@ spring-boot = "3.1.2"
 
 [libraries]
 errorprone = "com.google.errorprone:error_prone_core:2.21.1"
-gradle-dependency-management = "io.spring.gradle:dependency-management-plugin:1.1.2"
+gradle-dependency-management = "io.spring.gradle:dependency-management-plugin:1.1.3"
 gradle-errorprone = "net.ltgt.gradle:gradle-errorprone-plugin:2.0.2"
 gradle-spotbugs = "com.github.spotbugs.snom:spotbugs-gradle-plugin:5.0.8"
 gradle-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.20.0"
