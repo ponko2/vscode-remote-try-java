@@ -1,5 +1,5 @@
 [versions]
-immutables = "2.9.3"
+immutables = "2.10.0"
 spring-boot = "3.1.4"
 
 [libraries]
