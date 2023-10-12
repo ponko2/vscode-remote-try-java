@@ -15,7 +15,7 @@ immutables-annotations = { module = "org.immutables:value-annotations", version.
 jcip-annotations = "net.jcip:jcip-annotations:1.0"
 nullaway = "com.uber.nullaway:nullaway:0.10.14"
 slf4j-simple = "org.slf4j:slf4j-simple:2.0.9"
-spotbugs-annotations = "com.github.spotbugs:spotbugs-annotations:4.7.3"
+spotbugs-annotations = "com.github.spotbugs:spotbugs-annotations:4.8.0"
 spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
 spring-boot-mybatis = "org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2"
 sulky-ulid = "de.huxhorn.sulky:de.huxhorn.sulky.ulid:8.3.0"
