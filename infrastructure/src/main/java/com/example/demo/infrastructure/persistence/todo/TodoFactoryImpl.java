@@ -13,7 +13,7 @@ public class TodoFactoryImpl implements TodoFactory {
   private static final ULID ulid = new ULID();
 
   @Override
-  public Todo create(TodoTitle title) {
+  public Todo create(final TodoTitle title) {
     return new Todo(new TodoId(ulid.nextULID()), title, false);
   }
 }

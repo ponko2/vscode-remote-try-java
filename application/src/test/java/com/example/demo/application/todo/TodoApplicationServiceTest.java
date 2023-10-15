@@ -26,12 +26,12 @@ public class TodoApplicationServiceTest {
 
   @Test
   void testGet() {
-    var id = new TodoId("01FYH62GKVNWP6SJFJ8FMW89TW");
-    var todo = new Todo(id, new TodoTitle("foo"), false);
+    final var id = new TodoId("01FYH62GKVNWP6SJFJ8FMW89TW");
+    final var todo = new Todo(id, new TodoTitle("foo"), false);
     doReturn(Optional.of(todo)).when(todoRepository).find(any(TodoId.class));
 
-    var actual = todoApplicationService.get(new TodoGetCommand(id.value()));
-    var expected = new TodoGetResult(new TodoData(todo));
+    final var actual = todoApplicationService.get(new TodoGetCommand(id.value()));
+    final var expected = new TodoGetResult(new TodoData(todo));
 
     assertThat(actual, is(expected));
   }

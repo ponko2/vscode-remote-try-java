@@ -30,14 +30,15 @@ public class TodoApplicationServiceImpl implements TodoApplicationService {
    * @param todoRepository Todo repository
    */
   @Autowired
-  public TodoApplicationServiceImpl(TodoFactory todoFactory, TodoRepository todoRepository) {
+  public TodoApplicationServiceImpl(
+      final TodoFactory todoFactory, final TodoRepository todoRepository) {
     this.todoFactory = todoFactory;
     this.todoRepository = todoRepository;
   }
 
   @Override
-  public TodoGetResult get(TodoGetCommand command) {
-    var todo =
+  public TodoGetResult get(final TodoGetCommand command) {
+    final var todo =
         todoRepository
             .find(new TodoId(command.id()))
             .map(TodoData::new)
@@ -47,15 +48,15 @@ public class TodoApplicationServiceImpl implements TodoApplicationService {
 
   @Override
   public TodoGetAllResult getAll() {
-    var todos = todoRepository.findAll().stream().map(TodoData::new).toList();
+    final var todos = todoRepository.findAll().stream().map(TodoData::new).toList();
     return new TodoGetAllResult(todos);
   }
 
   @Transactional
   @Override
-  public TodoCreateResult create(TodoCreateCommand command) {
-    var title = new TodoTitle(command.title());
-    var todo = todoFactory.create(title);
+  public TodoCreateResult create(final TodoCreateCommand command) {
+    final var title = new TodoTitle(command.title());
+    final var todo = todoFactory.create(title);
     todoRepository.save(todo);
 
     return new TodoCreateResult(todo.id().value());
@@ -63,8 +64,8 @@ public class TodoApplicationServiceImpl implements TodoApplicationService {
 
   @Transactional
   @Override
-  public void update(TodoUpdateCommand command) {
-    var todo =
+  public void update(final TodoUpdateCommand command) {
+    final var todo =
         todoRepository
             .find(new TodoId(command.id()))
             .orElseThrow(() -> new TodoNotFoundException("タスクが見つかりませんでした。"));
@@ -75,8 +76,8 @@ public class TodoApplicationServiceImpl implements TodoApplicationService {
 
   @Transactional
   @Override
-  public void delete(TodoDeleteCommand command) {
-    var todo =
+  public void delete(final TodoDeleteCommand command) {
+    final var todo =
         todoRepository
             .find(new TodoId(command.id()))
             .orElseThrow(() -> new TodoNotFoundException("タスクが見つかりませんでした。"));

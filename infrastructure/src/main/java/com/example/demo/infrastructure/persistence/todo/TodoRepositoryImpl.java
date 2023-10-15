@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 /** TodoRepositoryImpl. */
 @Repository
 public class TodoRepositoryImpl implements TodoRepository {
-  private TodoMapper todoMapper;
+  private final TodoMapper todoMapper;
 
   /**
    * TodoRepositoryImpl.
@@ -21,7 +21,7 @@ public class TodoRepositoryImpl implements TodoRepository {
    * @param todoMapper Todo mapper
    */
   @Autowired
-  public TodoRepositoryImpl(TodoMapper todoMapper) {
+  public TodoRepositoryImpl(final TodoMapper todoMapper) {
     this.todoMapper = todoMapper;
   }
 
@@ -31,45 +31,45 @@ public class TodoRepositoryImpl implements TodoRepository {
   }
 
   @Override
-  public Optional<Todo> find(TodoId id) {
+  public Optional<Todo> find(final TodoId id) {
     return todoMapper.findById(id.value().toString()).map(this::toModel);
   }
 
   @Override
-  public void save(Todo todo) {
+  public void save(final Todo todo) {
     todoMapper
         .findById(todo.id().value())
         .ifPresentOrElse(
             found -> {
-              var data = transfer(todo, found);
+              final var data = transfer(todo, found);
               todoMapper.update(data);
             },
             () -> {
-              var data = toDataModel(todo);
+              final var data = toDataModel(todo);
               todoMapper.insert(data);
             });
   }
 
   @Override
-  public void delete(Todo todo) {
-    var data = toDataModel(todo);
+  public void delete(final Todo todo) {
+    final var data = toDataModel(todo);
     todoMapper.delete(data);
   }
 
-  private Todo toModel(TodoDataModel from) {
+  private Todo toModel(final TodoDataModel from) {
     return new Todo(new TodoId(from.getId()), new TodoTitle(from.getTitle()), from.isCompleted());
   }
 
-  private TodoDataModel toDataModel(Todo from) {
-    TodoDataModel to = TodoDataModel.create();
+  private TodoDataModel toDataModel(final Todo from) {
+    final TodoDataModel to = TodoDataModel.create();
     to.setId(from.id().value());
     to.setTitle(from.title().value());
     to.setCompleted(from.completed());
     return to;
   }
 
-  private TodoDataModel transfer(Todo from, TodoDataModel model) {
-    TodoDataModel to = TodoDataModel.create().from(model);
+  private TodoDataModel transfer(final Todo from, final TodoDataModel model) {
+    final TodoDataModel to = TodoDataModel.create().from(model);
     to.setTitle(from.title().value());
     to.setCompleted(from.completed());
     return to;

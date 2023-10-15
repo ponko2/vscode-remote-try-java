@@ -33,7 +33,7 @@ public class TodoController {
   private final TodoApplicationService todoApplicationService;
 
   @Autowired
-  public TodoController(TodoApplicationService todoApplicationService) {
+  public TodoController(final TodoApplicationService todoApplicationService) {
     this.todoApplicationService = todoApplicationService;
   }
 
@@ -44,8 +44,8 @@ public class TodoController {
    */
   @GetMapping
   public TodoIndexResponseModel index() {
-    var result = todoApplicationService.getAll();
-    var todos =
+    final var result = todoApplicationService.getAll();
+    final var todos =
         result.todos().stream()
             .map(v -> new TodoResponseModel(v.id(), v.title(), v.completed()))
             .toList();
@@ -59,13 +59,13 @@ public class TodoController {
    * @return TodoGetResponseModel
    */
   @GetMapping("{id}")
-  public TodoGetResponseModel get(@PathVariable String id) {
+  public TodoGetResponseModel get(@PathVariable final String id) {
     try {
-      var command = new TodoGetCommand(id);
-      var result = todoApplicationService.get(command);
-      var todo = new TodoResponseModel(result.todo());
+      final var command = new TodoGetCommand(id);
+      final var result = todoApplicationService.get(command);
+      final var todo = new TodoResponseModel(result.todo());
       return new TodoGetResponseModel(todo);
-    } catch (TodoNotFoundException e) {
+    } catch (final TodoNotFoundException e) {
       throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
     }
   }
@@ -78,9 +78,9 @@ public class TodoController {
    */
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public TodoPostResponseModel post(@Validated @RequestBody TodoPostRequestModel request) {
-    var command = new TodoCreateCommand(request.title());
-    var result = todoApplicationService.create(command);
+  public TodoPostResponseModel post(@Validated @RequestBody final TodoPostRequestModel request) {
+    final var command = new TodoCreateCommand(request.title());
+    final var result = todoApplicationService.create(command);
     return new TodoPostResponseModel(result.createdTodoId());
   }
 
@@ -91,11 +91,12 @@ public class TodoController {
    * @param request Request
    */
   @PatchMapping("{id}")
-  public void patch(@PathVariable String id, @RequestBody TodoPatchRequestModel request) {
+  public void patch(
+      @PathVariable final String id, @RequestBody final TodoPatchRequestModel request) {
     try {
-      var command = new TodoUpdateCommand(id, request.title(), request.completed());
+      final var command = new TodoUpdateCommand(id, request.title(), request.completed());
       todoApplicationService.update(command);
-    } catch (TodoNotFoundException e) {
+    } catch (final TodoNotFoundException e) {
       throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
     }
   }
@@ -107,11 +108,11 @@ public class TodoController {
    */
   @DeleteMapping("{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
-  public void delete(@PathVariable String id) {
+  public void delete(@PathVariable final String id) {
     try {
-      var command = new TodoDeleteCommand(id);
+      final var command = new TodoDeleteCommand(id);
       todoApplicationService.delete(command);
-    } catch (TodoNotFoundException e) {
+    } catch (final TodoNotFoundException e) {
       throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
     }
   }
