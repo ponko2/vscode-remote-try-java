@@ -4,7 +4,7 @@ import {
   Route,
   Router,
   RouterProvider,
-} from "@tanstack/router";
+} from "@tanstack/react-router";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import styles from "./App.module.css";

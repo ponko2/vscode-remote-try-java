@@ -8,6 +8,7 @@
     "org.checkstyle.google.suppressionfilter.config": "${workspaceFolder}/config/checkstyle/suppressions.xml",
     "org.checkstyle.google.suppressionxpathfilter.config": "${workspaceFolder}/config/checkstyle/suppressions-xpath.xml"
   },
+  "java.checkstyle.version": "10.12.4",
   "java.compile.nullAnalysis.mode": "automatic",
   "java.compile.nullAnalysis.nonnull": [
     "javax.annotation.Nonnull",

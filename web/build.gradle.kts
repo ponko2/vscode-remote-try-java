@@ -16,8 +16,8 @@ tasks.register<Copy>("processFrontendResources") {
   group = "Frontend"
   description = "Process frontend resources"
   dependsOn(project(":frontend").tasks.named("assembleFrontend"))
-  from(file("${project(":frontend").projectDir}/dist"))
-  into(file("${project.buildDir}/resources/main/public"))
+  from(project(":frontend").layout.projectDirectory.dir("dist"))
+  into(layout.buildDirectory.dir("resources/main/static"))
 }
 
 tasks.named<ProcessResources>("processResources").configure {

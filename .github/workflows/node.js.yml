@@ -22,8 +22,10 @@ jobs:
       - run: npm ci
       - run: npm run build --workspaces --if-present
       - run: npm test --workspaces
+      - run: npx playwright install --with-deps
+      - run: npm run build-storybook --workspaces --quiet
       - run: >-
           npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue"
-          "npm run build-storybook --workspaces --quiet && npx http-server frontend/storybook-static --port 6006 --silent"
+          "npx http-server frontend/storybook-static --port 6006 --silent"
           "npx wait-on http://127.0.0.1:6006 && npm run test-storybook --workspaces -- --url=http://127.0.0.1:6006"
       - run: npm run lint

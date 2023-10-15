@@ -6,7 +6,7 @@ import {
   Router,
   RouterProvider,
   createMemoryHistory,
-} from "@tanstack/router";
+} from "@tanstack/react-router";
 import { TodoFooter } from "./TodoFooter";
 
 const history = createMemoryHistory({ initialEntries: ["/"] });
