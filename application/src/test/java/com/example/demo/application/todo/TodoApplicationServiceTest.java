@@ -26,7 +26,7 @@ public class TodoApplicationServiceTest {
 
   @Test
   void testGet() {
-    final var id = new TodoId("01FYH62GKVNWP6SJFJ8FMW89TW");
+    final var id = new TodoId("018b3284-099f-7889-921b-63f020991177");
     final var todo = new Todo(id, new TodoTitle("foo"), false);
     doReturn(Optional.of(todo)).when(todoRepository).find(any(TodoId.class));
 

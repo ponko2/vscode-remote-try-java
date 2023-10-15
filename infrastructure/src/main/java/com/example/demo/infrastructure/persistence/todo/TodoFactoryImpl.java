@@ -4,16 +4,17 @@ import com.example.demo.domain.model.todo.Todo;
 import com.example.demo.domain.model.todo.TodoFactory;
 import com.example.demo.domain.model.todo.TodoId;
 import com.example.demo.domain.model.todo.TodoTitle;
-import de.huxhorn.sulky.ulid.ULID;
+import com.fasterxml.uuid.Generators;
+import java.util.UUID;
 import org.springframework.stereotype.Component;
 
 /** TodoFactoryImpl. */
 @Component
 public class TodoFactoryImpl implements TodoFactory {
-  private static final ULID ulid = new ULID();
 
   @Override
   public Todo create(final TodoTitle title) {
-    return new Todo(new TodoId(ulid.nextULID()), title, false);
+    final UUID uuid = Generators.timeBasedEpochGenerator().generate();
+    return new Todo(new TodoId(uuid.toString()), title, false);
   }
 }
