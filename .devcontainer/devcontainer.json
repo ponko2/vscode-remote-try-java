@@ -24,74 +24,16 @@
     // Configure properties specific to VS Code.
     "vscode": {
       // Set *default* container specific settings.json values on container create.
-      "settings": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnPaste": true,
-        "editor.formatOnSave": true,
-        "editor.formatOnType": true,
-        "java.checkstyle.configuration": "${workspaceFolder}/config/checkstyle/checkstyle.xml",
-        "java.checkstyle.properties": {
-          "org.checkstyle.google.suppressionfilter.config": "${workspaceFolder}/config/checkstyle/suppressions.xml",
-          "org.checkstyle.google.suppressionxpathfilter.config": "${workspaceFolder}/config/checkstyle/suppressions-xpath.xml"
-        },
-        "java.checkstyle.version": "10.8.0",
-        "java.compile.nullAnalysis.mode": "automatic",
-        "java.compile.nullAnalysis.nonnull": [
-          "javax.annotation.Nonnull",
-          "org.eclipse.jdt.annotation.NonNull",
-          "org.springframework.lang.NonNull"
-        ],
-        "java.compile.nullAnalysis.nullable": [
-          "javax.annotation.Nullable",
-          "org.eclipse.jdt.annotation.Nullable",
-          "org.springframework.lang.Nullable"
-        ],
-        "java.completion.favoriteStaticMembers": [
-          "com.github.npathai.hamcrestopt.OptionalMatchers.*",
-          "org.hamcrest.MatcherAssert.*",
-          "org.hamcrest.Matchers.*",
-          "org.junit.Assert.*",
-          "org.junit.Assume.*",
-          "org.junit.jupiter.api.Assertions.*",
-          "org.junit.jupiter.api.Assumptions.*",
-          "org.junit.jupiter.api.DynamicContainer.*",
-          "org.junit.jupiter.api.DynamicTest.*",
-          "org.mockito.Answers.*",
-          "org.mockito.ArgumentMatchers.*",
-          "org.mockito.Mockito.*",
-          "org.springframework.test.util.ReflectionTestUtils.*"
-        ],
-        "java.completion.filteredTypes": [
-          "java.awt.*",
-          "com.sun.*",
-          "sun.*",
-          "jdk.*",
-          "org.graalvm.*",
-          "io.micrometer.shaded.*"
-        ],
-        "java.completion.importOrder": ["#", ""],
-        "java.configuration.updateBuildConfiguration": "automatic",
-        "java.format.enabled": false,
-        "java.saveActions.organizeImports": true,
-        "[java]": {
-          "editor.codeActionsOnSave": {
-            "source.fixAll.spotlessGradle": true
-          },
-          "editor.defaultFormatter": "richardwillis.vscode-spotless-gradle",
-          "files.trimTrailingWhitespace": false,
-          "spotlessGradle.diagnostics.enable": true,
-          "spotlessGradle.format.enable": true
-        }
-      },
+      "settings": {},
 
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
+        "EditorConfig.EditorConfig",
         "dbaeumer.vscode-eslint",
-        "editorconfig.editorconfig",
         "esbenp.prettier-vscode",
-        "pivotal.vscode-boot-dev-pack",
         "richardwillis.vscode-spotless-gradle",
         "shengchen.vscode-checkstyle",
+        "vmware.vscode-boot-dev-pack",
         "vscjava.vscode-gradle",
         "vscjava.vscode-java-pack"
       ]

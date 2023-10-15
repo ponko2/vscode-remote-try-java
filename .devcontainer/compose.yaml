@@ -1,8 +1,6 @@
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: mcr.microsoft.com/devcontainers/java:1-17-bullseye
     environment:
       # NOTE: MYSQL_DATABASE/USER/PASSWORD should match values in db container
       MYSQL_DATABASE: demo
