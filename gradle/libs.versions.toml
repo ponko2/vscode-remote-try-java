@@ -1,5 +1,4 @@
 [versions]
-immutables = "2.10.0"
 spring-boot = "3.1.4"
 
 [libraries]
@@ -10,8 +9,6 @@ gradle-spotbugs = "com.github.spotbugs.snom:spotbugs-gradle-plugin:5.0.8"
 gradle-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.22.0"
 gradle-spring-boot = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
 hamcrest-optional = "com.github.npathai:hamcrest-optional:2.0.0"
-immutables = { module = "org.immutables:value", version.ref = "immutables" }
-immutables-annotations = { module = "org.immutables:value-annotations", version.ref = "immutables" }
 jcip-annotations = "net.jcip:jcip-annotations:1.0"
 nullaway = "com.uber.nullaway:nullaway:0.10.14"
 slf4j-simple = "org.slf4j:slf4j-simple:2.0.9"

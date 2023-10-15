@@ -30,7 +30,7 @@ public class TodoRepositoryImpl implements TodoRepository {
 
   @Override
   public Optional<Todo> find(final TodoId id) {
-    return todoMapper.findById(id.value().toString()).map(this::toModel);
+    return todoMapper.findById(id.value()).map(this::toModel);
   }
 
   @Override
@@ -55,21 +55,14 @@ public class TodoRepositoryImpl implements TodoRepository {
   }
 
   private Todo toModel(final TodoDataModel from) {
-    return new Todo(new TodoId(from.getId()), new TodoTitle(from.getTitle()), from.isCompleted());
+    return new Todo(new TodoId(from.id()), new TodoTitle(from.title()), from.completed());
   }
 
   private TodoDataModel toDataModel(final Todo from) {
-    final TodoDataModel to = TodoDataModel.create();
-    to.setId(from.id().value());
-    to.setTitle(from.title().value());
-    to.setCompleted(from.completed());
-    return to;
+    return new TodoDataModel(from.id().value(), from.title().value(), from.completed());
   }
 
   private TodoDataModel transfer(final Todo from, final TodoDataModel model) {
-    final TodoDataModel to = TodoDataModel.create().from(model);
-    to.setTitle(from.title().value());
-    to.setCompleted(from.completed());
-    return to;
+    return new TodoDataModel(model.id(), from.title().value(), from.completed());
   }
 }

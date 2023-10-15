@@ -35,8 +35,6 @@ repositories {
 
 dependencies {
   implementation(platform(library("spring-boot-dependencies")))
-  annotationProcessor(library("immutables"))
-  compileOnly(library("immutables-annotations"))
   compileOnly(library("jcip-annotations"))
   compileOnly(library("spotbugs-annotations"))
   testCompileOnly(library("jcip-annotations"))
