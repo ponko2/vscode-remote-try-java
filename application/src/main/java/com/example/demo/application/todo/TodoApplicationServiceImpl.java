@@ -13,7 +13,6 @@ import com.example.demo.domain.model.todo.TodoFactory;
 import com.example.demo.domain.model.todo.TodoId;
 import com.example.demo.domain.model.todo.TodoRepository;
 import com.example.demo.domain.model.todo.TodoTitle;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,7 +28,6 @@ public class TodoApplicationServiceImpl implements TodoApplicationService {
    * @param todoFactory Todo factory
    * @param todoRepository Todo repository
    */
-  @Autowired
   public TodoApplicationServiceImpl(
       final TodoFactory todoFactory, final TodoRepository todoRepository) {
     this.todoFactory = todoFactory;

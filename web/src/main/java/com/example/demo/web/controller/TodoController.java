@@ -12,7 +12,6 @@ import com.example.demo.web.model.todo.index.TodoIndexResponseModel;
 import com.example.demo.web.model.todo.patch.TodoPatchRequestModel;
 import com.example.demo.web.model.todo.post.TodoPostRequestModel;
 import com.example.demo.web.model.todo.post.TodoPostResponseModel;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,7 +31,6 @@ import org.springframework.web.server.ResponseStatusException;
 public class TodoController {
   private final TodoApplicationService todoApplicationService;
 
-  @Autowired
   public TodoController(final TodoApplicationService todoApplicationService) {
     this.todoApplicationService = todoApplicationService;
   }

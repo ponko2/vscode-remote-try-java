@@ -7,7 +7,6 @@ import com.example.demo.domain.model.todo.TodoTitle;
 import com.example.demo.infrastructure.persistence.datamodel.TodoDataModel;
 import java.util.Collection;
 import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /** TodoRepositoryImpl. */
@@ -20,7 +19,6 @@ public class TodoRepositoryImpl implements TodoRepository {
    *
    * @param todoMapper Todo mapper
    */
-  @Autowired
   public TodoRepositoryImpl(final TodoMapper todoMapper) {
     this.todoMapper = todoMapper;
   }
