@@ -1,0 +1,6 @@
+{
+  "Exclude": ["gradlew.bat"],
+  "Disable": {
+    "IndentSize": true
+  }
+}
