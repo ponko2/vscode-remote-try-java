@@ -2,7 +2,7 @@
   "name": "demo",
   "version": "0.0.1",
   "devDependencies": {
-    "@commitlint/cli": "^18.1.0",
+    "@commitlint/cli": "^18.2.0",
     "@commitlint/config-conventional": "^18.1.0",
     "@secretlint/secretlint-rule-preset-recommend": "^7.0.7",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
