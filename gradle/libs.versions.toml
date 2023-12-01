@@ -10,7 +10,7 @@ gradle-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.23.2"
 gradle-spring-boot = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
 hamcrest-optional = "com.github.npathai:hamcrest-optional:2.0.0"
 jcip-annotations = "net.jcip:jcip-annotations:1.0"
-nullaway = "com.uber.nullaway:nullaway:0.10.17"
+nullaway = "com.uber.nullaway:nullaway:0.10.18"
 slf4j-simple = "org.slf4j:slf4j-simple:2.0.9"
 spotbugs-annotations = "com.github.spotbugs:spotbugs-annotations:4.8.2"
 spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
