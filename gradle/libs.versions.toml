@@ -6,7 +6,7 @@ errorprone = "com.google.errorprone:error_prone_core:2.23.0"
 gradle-dependency-management = "io.spring.gradle:dependency-management-plugin:1.1.4"
 gradle-errorprone = "net.ltgt.gradle:gradle-errorprone-plugin:3.1.0"
 gradle-spotbugs = "com.github.spotbugs.snom:spotbugs-gradle-plugin:5.2.0"
-gradle-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.23.2"
+gradle-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.23.3"
 gradle-spring-boot = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
 hamcrest-optional = "com.github.npathai:hamcrest-optional:2.0.0"
 jcip-annotations = "net.jcip:jcip-annotations:1.0"
