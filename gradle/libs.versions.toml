@@ -12,7 +12,7 @@ hamcrest-optional = "com.github.npathai:hamcrest-optional:2.0.0"
 jcip-annotations = "net.jcip:jcip-annotations:1.0"
 nullaway = "com.uber.nullaway:nullaway:0.10.18"
 slf4j-simple = "org.slf4j:slf4j-simple:2.0.9"
-spotbugs-annotations = "com.github.spotbugs:spotbugs-annotations:4.8.2"
+spotbugs-annotations = "com.github.spotbugs:spotbugs-annotations:4.8.3"
 spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
 spring-boot-mybatis = "org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3"
 uuid-generator = "com.fasterxml.uuid:java-uuid-generator:4.3.0"
