@@ -1,5 +1,5 @@
 [versions]
-spring-boot = "3.2.0"
+spring-boot = "3.2.1"
 
 [libraries]
 errorprone = "com.google.errorprone:error_prone_core:2.23.0"
