@@ -1,3 +1,4 @@
+import type { RouterHistory } from "@tanstack/react-router";
 import {
   RootRoute,
   Route,
@@ -9,9 +10,7 @@ import "@testing-library/jest-dom";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { TodoFooter } from "./TodoFooter";
 
-const history = createMemoryHistory({ initialEntries: ["/"] });
-
-function createRouter(element: JSX.Element) {
+function createRouter(element: JSX.Element, history: RouterHistory) {
   const rootRoute = new RootRoute({ component: () => element });
   const routeTree = rootRoute.addChildren([
     new Route({ getParentRoute: () => rootRoute, path: "/" }),
@@ -22,9 +21,7 @@ function createRouter(element: JSX.Element) {
 }
 
 describe("<TodoFooter/>", () => {
-  // TODO: テスト時のみクラスが変化しない原因がわかるまで一時的にSkip
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip("全てを表示", async () => {
+  it("全てを表示", async () => {
     const clearCompletedSpy = jest.fn();
     const router = createRouter(
       <TodoFooter
@@ -32,9 +29,8 @@ describe("<TodoFooter/>", () => {
         completedCount={1}
         clearCompleted={clearCompletedSpy}
       />,
+      createMemoryHistory({ initialEntries: ["/active"] }),
     );
-
-    history.replace("/active", {});
 
     render(<RouterProvider router={router} />);
 
@@ -48,9 +44,7 @@ describe("<TodoFooter/>", () => {
     await waitFor(() => expect(clearCompletedSpy).not.toHaveBeenCalled());
   });
 
-  // TODO: テスト時のみクラスが変化しない原因がわかるまで一時的にSkip
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip("未完了のものを表示", async () => {
+  it("未完了のものを表示", async () => {
     const clearCompletedSpy = jest.fn();
     const router = createRouter(
       <TodoFooter
@@ -58,6 +52,7 @@ describe("<TodoFooter/>", () => {
         completedCount={1}
         clearCompleted={clearCompletedSpy}
       />,
+      createMemoryHistory({ initialEntries: ["/"] }),
     );
 
     render(<RouterProvider router={router} />);
@@ -72,9 +67,7 @@ describe("<TodoFooter/>", () => {
     await waitFor(() => expect(clearCompletedSpy).not.toHaveBeenCalled());
   });
 
-  // TODO: テスト時のみクラスが変化しない原因がわかるまで一時的にSkip
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip("完了したものを表示", async () => {
+  it("完了したものを表示", async () => {
     const clearCompletedSpy = jest.fn();
     const router = createRouter(
       <TodoFooter
@@ -82,6 +75,7 @@ describe("<TodoFooter/>", () => {
         completedCount={1}
         clearCompleted={clearCompletedSpy}
       />,
+      createMemoryHistory({ initialEntries: ["/"] }),
     );
 
     render(<RouterProvider router={router} />);
@@ -104,6 +98,7 @@ describe("<TodoFooter/>", () => {
         completedCount={1}
         clearCompleted={clearCompletedSpy}
       />,
+      createMemoryHistory({ initialEntries: ["/"] }),
     );
 
     render(<RouterProvider router={router} />);
