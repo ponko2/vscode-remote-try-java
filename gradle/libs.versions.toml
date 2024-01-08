@@ -11,7 +11,7 @@ gradle-spring-boot = { module = "org.springframework.boot:spring-boot-gradle-plu
 hamcrest-optional = "com.github.npathai:hamcrest-optional:2.0.0"
 jcip-annotations = "net.jcip:jcip-annotations:1.0"
 nullaway = "com.uber.nullaway:nullaway:0.10.19"
-slf4j-simple = "org.slf4j:slf4j-simple:2.0.10"
+slf4j-simple = "org.slf4j:slf4j-simple:2.0.11"
 spotbugs-annotations = "com.github.spotbugs:spotbugs-annotations:4.8.3"
 spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
 spring-boot-mybatis = "org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3"
