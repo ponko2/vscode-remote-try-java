@@ -33,7 +33,6 @@ module.exports = {
       files: ["*.ts", "*.tsx"],
       extends: [
         "plugin:import/typescript",
-        "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/stylistic",
         "prettier",
@@ -129,7 +128,7 @@ module.exports = {
       },
     },
     {
-      files: ["commitlint.config.js", "jest.config.ts", "vite.config.ts"],
+      files: ["jest.config.ts", "vite.config.ts"],
       rules: {
         "no-restricted-exports": "off",
       },
