@@ -51,7 +51,7 @@ jobs:
         with:
           distribution: corretto
           java-version: 17
-      - uses: gradle/gradle-build-action@v2
+      - uses: gradle/actions/setup-gradle@v3
       - run: ./gradlew spotlessApply
       - uses: reviewdog/action-suggester@v1
         with:
