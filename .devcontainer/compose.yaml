@@ -10,6 +10,7 @@ services:
 
     volumes:
       - ../..:/workspaces:cached
+      - node-data:/workspaces/vscode-remote-try-java/node_modules
 
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
@@ -37,3 +38,4 @@ services:
 
 volumes:
   mysql-data:
+  node-data:

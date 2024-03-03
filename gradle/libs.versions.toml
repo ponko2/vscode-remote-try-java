@@ -1,21 +1,25 @@
 [versions]
-spring-boot = "3.2.3"
+checkstyle = "10.14.0"
+mybatis = "3.0.3"
+node = "20.11.1"
 
 [libraries]
+archunit = "com.tngtech.archunit:archunit-junit5:1.2.1"
 errorprone = "com.google.errorprone:error_prone_core:2.25.0"
-gradle-dependency-management = "io.spring.gradle:dependency-management-plugin:1.1.4"
-gradle-errorprone = "net.ltgt.gradle:gradle-errorprone-plugin:3.1.0"
-gradle-spotbugs = "com.github.spotbugs.snom:spotbugs-gradle-plugin:5.2.0"
-gradle-spotless = "com.diffplug.spotless:spotless-plugin-gradle:6.25.0"
-gradle-spring-boot = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
-hamcrest-optional = "com.github.npathai:hamcrest-optional:2.0.0"
-jcip-annotations = "net.jcip:jcip-annotations:1.0"
+jcip = "com.github.stephenc.jcip:jcip-annotations:1.0-1"
+jspecify = "org.jspecify:jspecify:0.3.0"
+mybatis = { module = "org.mybatis.spring.boot:mybatis-spring-boot-starter", version.ref = "mybatis" }
+mybatis-test = { module = "org.mybatis.spring.boot:mybatis-spring-boot-starter-test", version.ref = "mybatis" }
 nullaway = "com.uber.nullaway:nullaway:0.10.23"
-slf4j-simple = "org.slf4j:slf4j-simple:2.0.12"
-spotbugs-annotations = "com.github.spotbugs:spotbugs-annotations:4.8.3"
-spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
-spring-boot-mybatis = "org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3"
-uuid-generator = "com.fasterxml.uuid:java-uuid-generator:5.0.0"
+slf4j = "org.slf4j:slf4j-simple:2.0.12"
+spotbugs = "com.github.spotbugs:spotbugs-annotations:4.8.3"
+springdoc = "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0"
+uuid = "com.fasterxml.uuid:java-uuid-generator:5.0.0"
 
 [plugins]
+boot = "org.springframework.boot:3.2.3"
+dependency = "io.spring.dependency-management:1.1.4"
+errorprone = "net.ltgt.errorprone:3.1.0"
 frontend = "org.siouan.frontend-jdk17:8.0.0"
+spotbugs = "com.github.spotbugs:6.0.8"
+spotless = "com.diffplug.spotless:6.25.0"

@@ -1,203 +1,237 @@
-import type { UseMutationResult, UseQueryResult } from "react-query";
-import { useMutation, useQuery, useQueryClient } from "react-query";
-import { api } from "../api";
-import type {
-  TodoIndexResponseModel,
-  TodoPatchRequestModel,
-  TodoPostResponseModel,
-} from "../models/todos";
+import {
+  queryOptions,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
+import type { components } from "../api/schema";
+import { createTodo, deleteTodo, fetchTodos, updateTodo } from "../api/todos";
 
-const fetchTodos = async (): Promise<TodoIndexResponseModel> => {
-  return api.get("/api/todos").json();
-};
-
-export function useTodos<TData = TodoIndexResponseModel, TError = Error>(
-  select?: (todos: TodoIndexResponseModel) => TData,
-): UseQueryResult<TData, TError> {
-  return useQuery(
-    "todos",
-    fetchTodos,
-    typeof select === "undefined" ? {} : { select },
-  );
+export function todosQueryOptions() {
+  return queryOptions({
+    queryKey: ["todos"],
+    queryFn: fetchTodos,
+    select: (data) => data.todos,
+  });
 }
 
-export function useTodosCount(): UseQueryResult<number, Error> {
-  return useTodos((data) => data.todos.length);
+export function activeTodosQueryOptions() {
+  return queryOptions({
+    queryKey: ["todos"],
+    queryFn: fetchTodos,
+    select: (data) => data.todos.filter((todo) => !todo.completed),
+  });
 }
 
-export function useCompletedCount(): UseQueryResult<number, Error> {
-  return useTodos((data) => data.todos.filter((todo) => todo.completed).length);
+export function completedTodosQueryOptions() {
+  return queryOptions({
+    queryKey: ["todos"],
+    queryFn: fetchTodos,
+    select: (data) => data.todos.filter((todo) => todo.completed),
+  });
 }
 
-const addTodo = async (title: string): Promise<TodoPostResponseModel> => {
-  return api.post("/api/todos", { json: { title } }).json();
-};
+export function todosCountQueryOptions() {
+  return queryOptions({
+    queryKey: ["todos"],
+    queryFn: fetchTodos,
+    select: (data) => data.todos.length,
+  });
+}
 
-export function useAddTodo(): UseMutationResult<
-  TodoPostResponseModel,
-  Error,
-  string,
-  { previousData?: TodoIndexResponseModel }
-> {
+export function completedTodosCountQueryOptions() {
+  return queryOptions({
+    queryKey: ["todos"],
+    queryFn: fetchTodos,
+    select: (data) => data.todos.filter((todo) => todo.completed).length,
+  });
+}
+
+export function useCreateTodo() {
   const queryClient = useQueryClient();
-  return useMutation(addTodo, {
+  return useMutation({
+    mutationFn: createTodo,
     async onMutate(newTitle) {
-      await queryClient.cancelQueries("todos");
-      const previousData =
-        queryClient.getQueryData<TodoIndexResponseModel>("todos");
+      await queryClient.cancelQueries({
+        queryKey: ["todos"],
+      });
+      const previousData = queryClient.getQueryData<
+        components["schemas"]["TodoIndexResponse"]
+      >(["todos"]);
       if (typeof previousData === "undefined") {
         return {};
       }
-      queryClient.setQueryData<TodoIndexResponseModel>("todos", {
-        ...previousData,
-        todos: [
-          ...previousData.todos,
-          { id: Math.random().toString(), title: newTitle, completed: false },
-        ],
-      });
+      queryClient.setQueryData<components["schemas"]["TodoIndexResponse"]>(
+        ["todos"],
+        {
+          ...previousData,
+          todos: [
+            ...previousData.todos,
+            { id: Math.random().toString(), title: newTitle, completed: false },
+          ],
+        },
+      );
       return { previousData };
     },
     onError(_error, _variables, context) {
       if (context?.previousData) {
-        queryClient.setQueryData("todos", context.previousData);
+        queryClient.setQueryData(["todos"], context.previousData);
       }
     },
     onSettled() {
-      void queryClient.invalidateQueries("todos");
+      void queryClient.invalidateQueries({
+        queryKey: ["todos"],
+      });
     },
   });
 }
 
-const deleteTodo = async (id: string): Promise<void> => {
-  await api.delete(`/api/todos/${id}`);
-};
-
-export function useDeleteTodo(): UseMutationResult<void, Error, string> {
+export function useDeleteTodo() {
   const queryClient = useQueryClient();
-  return useMutation(deleteTodo, {
+  return useMutation({
+    mutationFn: deleteTodo,
     onSettled() {
-      void queryClient.invalidateQueries("todos");
+      void queryClient.invalidateQueries({
+        queryKey: ["todos"],
+      });
     },
   });
 }
 
-const editTodo = async ({
+export function useUpdateTodo() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: updateTodo,
+    async onMutate(newTodo) {
+      await queryClient.cancelQueries({
+        queryKey: ["todos"],
+      });
+      const previousData = queryClient.getQueryData<
+        components["schemas"]["TodoIndexResponse"]
+      >(["todos"]);
+      if (typeof previousData === "undefined") {
+        return {};
+      }
+      queryClient.setQueryData<components["schemas"]["TodoIndexResponse"]>(
+        ["todos"],
+        {
+          ...previousData,
+          todos: previousData.todos.map((todo) => {
+            if (todo.id === newTodo.id) {
+              return newTodo;
+            }
+            return todo;
+          }),
+        },
+      );
+      return { previousData };
+    },
+    onError(_error, _variables, context) {
+      if (context?.previousData) {
+        queryClient.setQueryData(["todos"], context.previousData);
+      }
+    },
+    onSettled() {
+      void queryClient.invalidateQueries({
+        queryKey: ["todos"],
+      });
+    },
+  });
+}
+
+async function toggleTodo({
   id,
   title,
   completed,
-}: TodoPatchRequestModel): Promise<void> => {
-  await api.patch(`/api/todos/${id}`, { json: { title, completed } });
-};
+}: {
+  id: string;
+  title: string;
+  completed: boolean;
+}) {
+  await updateTodo({ id, title, completed: !completed });
+}
 
-export function useEditTodo(): UseMutationResult<
-  void,
-  Error,
-  TodoPatchRequestModel,
-  { previousData?: TodoIndexResponseModel }
-> {
+export function useToggleTodo() {
   const queryClient = useQueryClient();
-  return useMutation(editTodo, {
+  return useMutation({
+    mutationFn: toggleTodo,
     async onMutate(newTodo) {
-      await queryClient.cancelQueries("todos");
-      const previousData =
-        queryClient.getQueryData<TodoIndexResponseModel>("todos");
+      await queryClient.cancelQueries({
+        queryKey: ["todos"],
+      });
+      const previousData = queryClient.getQueryData<
+        components["schemas"]["TodoIndexResponse"]
+      >(["todos"]);
       if (typeof previousData === "undefined") {
         return {};
       }
-      queryClient.setQueryData<TodoIndexResponseModel>("todos", {
-        ...previousData,
-        todos: previousData.todos.map((todo) => {
-          if (todo.id === newTodo.id) {
-            return newTodo;
-          }
-          return todo;
-        }),
-      });
+      queryClient.setQueryData<components["schemas"]["TodoIndexResponse"]>(
+        ["todos"],
+        {
+          ...previousData,
+          todos: previousData.todos.map((todo) => {
+            if (todo.id === newTodo.id) {
+              return { ...todo, completed: !todo.completed };
+            }
+            return todo;
+          }),
+        },
+      );
       return { previousData };
     },
     onError(_error, _variables, context) {
       if (context?.previousData) {
-        queryClient.setQueryData("todos", context.previousData);
+        queryClient.setQueryData(["todos"], context.previousData);
       }
     },
     onSettled() {
-      void queryClient.invalidateQueries("todos");
-    },
-  });
-}
-
-const toggleTodo = async (data: TodoPatchRequestModel): Promise<void> => {
-  await editTodo({ ...data, completed: !data.completed });
-};
-
-export function useToggleTodo(): UseMutationResult<
-  void,
-  Error,
-  TodoPatchRequestModel,
-  { previousData?: TodoIndexResponseModel }
-> {
-  const queryClient = useQueryClient();
-  return useMutation(toggleTodo, {
-    async onMutate(newTodo) {
-      await queryClient.cancelQueries("todos");
-      const previousData =
-        queryClient.getQueryData<TodoIndexResponseModel>("todos");
-      if (typeof previousData === "undefined") {
-        return {};
-      }
-      queryClient.setQueryData<TodoIndexResponseModel>("todos", {
-        ...previousData,
-        todos: previousData.todos.map((todo) => {
-          if (todo.id === newTodo.id) {
-            return { ...todo, completed: !todo.completed };
-          }
-          return todo;
-        }),
+      void queryClient.invalidateQueries({
+        queryKey: ["todos"],
       });
-      return { previousData };
-    },
-    onError(_error, _variables, context) {
-      if (context?.previousData) {
-        queryClient.setQueryData("todos", context.previousData);
-      }
-    },
-    onSettled() {
-      void queryClient.invalidateQueries("todos");
     },
   });
 }
 
-const toggleAllTodo = async (
-  todos: TodoPatchRequestModel[] = [],
-): Promise<void> => {
+async function toggleAllTodos(
+  todos: components["schemas"]["TodoResponse"][] = [],
+) {
   const completed = !todos.every((todo) => todo.completed);
-  await Promise.all(todos.map((todo) => editTodo({ ...todo, completed })));
-};
+  await Promise.all(todos.map((todo) => updateTodo({ ...todo, completed })));
+}
 
-export function useToggleAllTodo(): UseMutationResult<void, Error, void> {
+export function useToggleAllTodos() {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<TodoIndexResponseModel>("todos");
-  return useMutation(() => toggleAllTodo(data?.todos ?? []), {
+  const data = queryClient.getQueryData<
+    components["schemas"]["TodoIndexResponse"]
+  >(["todos"]);
+  return useMutation({
+    mutationFn: () => toggleAllTodos(data?.todos ?? []),
     onSettled() {
-      void queryClient.invalidateQueries("todos");
+      void queryClient.invalidateQueries({
+        queryKey: ["todos"],
+      });
     },
   });
 }
 
-const clearCompleted = async (
-  todos: TodoPatchRequestModel[] = [],
-): Promise<void> => {
+async function clearCompletedTodos(
+  todos: components["schemas"]["TodoResponse"][] = [],
+) {
   await Promise.all(
     todos.filter(({ completed }) => completed).map(({ id }) => deleteTodo(id)),
   );
-};
+}
 
-export function useClearCompleted(): UseMutationResult<void, Error, void> {
+export function useClearCompletedTodos() {
   const queryClient = useQueryClient();
-  const data = queryClient.getQueryData<TodoIndexResponseModel>("todos");
-  return useMutation(() => clearCompleted(data?.todos ?? []), {
+  const data = queryClient.getQueryData<
+    components["schemas"]["TodoIndexResponse"]
+  >(["todos"]);
+  return useMutation({
+    mutationFn: () => clearCompletedTodos(data?.todos ?? []),
     onSettled() {
-      void queryClient.invalidateQueries("todos");
+      void queryClient.invalidateQueries({
+        queryKey: ["todos"],
+      });
     },
   });
 }

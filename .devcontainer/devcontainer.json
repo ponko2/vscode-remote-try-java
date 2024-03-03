@@ -14,10 +14,10 @@
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // This can be used to network with other containers or with the host.
-  "forwardPorts": [3306],
+  "forwardPorts": [3306, 8080],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "java -version",
+  "postCreateCommand": "sudo chown vscode:vscode node_modules",
 
   // Configure tool-specific properties.
   "customizations": {
@@ -29,9 +29,10 @@
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
         "EditorConfig.EditorConfig",
+        "JoseVSeb.google-java-format-for-vs-code",
+        "bradlc.vscode-tailwindcss",
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "richardwillis.vscode-spotless-gradle",
         "shengchen.vscode-checkstyle",
         "vmware.vscode-boot-dev-pack",
         "vscjava.vscode-gradle",

@@ -6,14 +6,14 @@ plugins {
 }
 
 frontend {
-  nodeVersion.set("18.16.1")
+  nodeVersion.set(libs.versions.node.get())
   packageJsonDirectory.set(rootProject.projectDir)
   assembleScript.set("-w frontend run build")
   cleanScript.set("-w frontend run clean")
   installScript.set("ci")
 }
 
-tasks.named<InstallFrontendTask>("installFrontend").configure {
+tasks.installFrontend {
   inputs.files(
     "package.json",
     "${rootProject.projectDir}/package.json",
@@ -22,7 +22,7 @@ tasks.named<InstallFrontendTask>("installFrontend").configure {
   outputs.dir("${rootProject.projectDir}/node_modules")
 }
 
-tasks.named<AssembleTask>("assembleFrontend").configure {
+tasks.assembleFrontend {
   inputs.files(
     "index.html",
     "package.json",

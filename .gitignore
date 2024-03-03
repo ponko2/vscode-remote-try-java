@@ -1,15 +1,11 @@
 .gradle
-.frontend-gradle-plugin/
 build/
-node/
-node_modules/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
 
 ### STS ###
 .apt_generated
-.apt_generated_tests
 .classpath
 .factorypath
 .project
@@ -35,3 +31,11 @@ out/
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### VS Code ###
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+### Node.js ###
+node_modules/

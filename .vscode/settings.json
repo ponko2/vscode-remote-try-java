@@ -3,6 +3,12 @@
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
   "java.checkstyle.configuration": "/google_checks.xml",
   "java.checkstyle.properties": {
     "org.checkstyle.google.suppressionfilter.config": "${workspaceFolder}/config/checkstyle/suppressions.xml",
@@ -10,16 +16,11 @@
   },
   "java.checkstyle.version": "10.12.4",
   "java.compile.nullAnalysis.mode": "automatic",
-  "java.compile.nullAnalysis.nonnull": [
-    "javax.annotation.Nonnull",
-    "org.eclipse.jdt.annotation.NonNull",
-    "org.springframework.lang.NonNull"
+  "java.compile.nullAnalysis.nonnull": ["org.jspecify.annotations.NonNull"],
+  "java.compile.nullAnalysis.nonnullbydefault": [
+    "org.jspecify.annotations.NullMarked"
   ],
-  "java.compile.nullAnalysis.nullable": [
-    "javax.annotation.Nullable",
-    "org.eclipse.jdt.annotation.Nullable",
-    "org.springframework.lang.Nullable"
-  ],
+  "java.compile.nullAnalysis.nullable": ["org.jspecify.annotations.Nullable"],
   "java.completion.favoriteStaticMembers": [
     "com.github.npathai.hamcrestopt.OptionalMatchers.*",
     "org.hamcrest.MatcherAssert.*",
@@ -45,17 +46,19 @@
   ],
   "java.completion.importOrder": ["#", ""],
   "java.configuration.updateBuildConfiguration": "automatic",
+  // Temporary workaround for https://github.com/google/google-java-format/issues/1072
+  "java.format.settings.google.mode": "jar-file",
+  "java.format.settings.google.version": "latest",
   "java.project.resourceFilters": ["node", "node_modules", ".git"],
-  "java.format.enabled": false,
   "java.saveActions.organizeImports": true,
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
   "[java]": {
     "editor.codeActionsOnSave": {
-      "source.fixAll.spotlessGradle": true,
-      "source.generate.finalModifiers": true
+      "source.generate.finalModifiers": "explicit"
     },
-    "editor.defaultFormatter": "richardwillis.vscode-spotless-gradle",
-    "files.trimTrailingWhitespace": false,
-    "spotlessGradle.diagnostics.enable": true,
-    "spotlessGradle.format.enable": true
+    "editor.defaultFormatter": "josevseb.google-java-format-for-vs-code"
   }
 }
