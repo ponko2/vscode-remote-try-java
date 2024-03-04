@@ -10,7 +10,7 @@ jcip = "com.github.stephenc.jcip:jcip-annotations:1.0-1"
 jspecify = "org.jspecify:jspecify:0.3.0"
 mybatis = { module = "org.mybatis.spring.boot:mybatis-spring-boot-starter", version.ref = "mybatis" }
 mybatis-test = { module = "org.mybatis.spring.boot:mybatis-spring-boot-starter-test", version.ref = "mybatis" }
-nullaway = "com.uber.nullaway:nullaway:0.10.23"
+nullaway = "com.uber.nullaway:nullaway:0.10.24"
 slf4j = "org.slf4j:slf4j-simple:2.0.12"
 spotbugs = "com.github.spotbugs:spotbugs-annotations:4.8.3"
 springdoc = "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0"
