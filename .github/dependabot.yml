@@ -32,6 +32,10 @@ updates:
       commitlint:
         patterns:
           - "@commitlint/*"
+      react:
+        patterns:
+          - react
+          - react-dom
       secretlint:
         patterns:
           - "@secretlint/*"
