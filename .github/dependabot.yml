@@ -40,6 +40,9 @@ updates:
         patterns:
           - "@storybook/*"
           - storybook
+      tanstack:
+        patterns:
+          - "@tanstack/*"
       types:
         patterns:
           - "@types/*"
