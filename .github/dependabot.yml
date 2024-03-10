@@ -7,8 +7,6 @@ updates:
       time: "07:00"
       timezone: Asia/Tokyo
     open-pull-requests-limit: 10
-    reviewers:
-      - ponko2
     commit-message:
       prefix: ci
   - package-ecosystem: gradle
@@ -18,8 +16,6 @@ updates:
       time: "07:00"
       timezone: Asia/Tokyo
     open-pull-requests-limit: 10
-    reviewers:
-      - ponko2
     commit-message:
       prefix: build
   - package-ecosystem: npm
@@ -29,24 +25,13 @@ updates:
       time: "07:00"
       timezone: Asia/Tokyo
     open-pull-requests-limit: 10
-    reviewers:
-      - ponko2
     commit-message:
       prefix: build
     versioning-strategy: increase
     groups:
-      babel:
-        patterns:
-          - "@babel/*"
-          - babel-loader
       commitlint:
         patterns:
           - "@commitlint/*"
-      jest:
-        patterns:
-          - babel-jest
-          - jest
-          - jest-environment-jsdom
       secretlint:
         patterns:
           - "@secretlint/*"
@@ -63,5 +48,9 @@ updates:
           - "@typescript-eslint/*"
       vite:
         patterns:
-          - "@vitejs/plugin-react"
+          - "@vitejs/*"
           - vite
+      vitest:
+        patterns:
+          - "@vitest/*"
+          - vitest
