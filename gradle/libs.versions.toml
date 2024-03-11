@@ -5,7 +5,7 @@ node = "20.11.1"
 
 [libraries]
 archunit = "com.tngtech.archunit:archunit-junit5:1.2.1"
-errorprone = "com.google.errorprone:error_prone_core:2.25.0"
+errorprone = "com.google.errorprone:error_prone_core:2.26.0"
 jcip = "com.github.stephenc.jcip:jcip-annotations:1.0-1"
 jspecify = "org.jspecify:jspecify:0.3.0"
 mybatis = { module = "org.mybatis.spring.boot:mybatis-spring-boot-starter", version.ref = "mybatis" }
