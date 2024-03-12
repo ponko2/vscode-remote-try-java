@@ -2,8 +2,8 @@
   "name": "demo",
   "version": "0.0.1",
   "devDependencies": {
-    "@commitlint/cli": "^19.0.3",
-    "@commitlint/config-conventional": "^19.0.3",
+    "@commitlint/cli": "^19.1.0",
+    "@commitlint/config-conventional": "^19.1.0",
     "@secretlint/secretlint-rule-preset-recommend": "^8.1.2",
     "@tanstack/eslint-plugin-query": "^5.20.1",
     "eslint": "^8.57.0",
