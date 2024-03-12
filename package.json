@@ -6,8 +6,6 @@
     "@commitlint/config-conventional": "^19.0.3",
     "@secretlint/secretlint-rule-preset-recommend": "^8.1.2",
     "@tanstack/eslint-plugin-query": "^5.20.1",
-    "@typescript-eslint/eslint-plugin": "^7.2.0",
-    "@typescript-eslint/parser": "^7.2.0",
     "eslint": "^8.57.0",
     "eslint-config-ponko2": "^22.0.0",
     "eslint-config-prettier": "^9.1.0",
@@ -27,7 +25,8 @@
     "prettier": "3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.12",
     "rimraf": "^5.0.5",
-    "secretlint": "^8.1.2"
+    "secretlint": "^8.1.2",
+    "typescript-eslint": "^7.2.0"
   },
   "engines": {
     "node": "^20.11.1"
