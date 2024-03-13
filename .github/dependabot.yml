@@ -44,9 +44,16 @@ updates:
         patterns:
           - "@storybook/*"
           - storybook
-      tanstack:
+      tanstack-query:
         patterns:
-          - "@tanstack/*"
+          - "@tanstack/eslint-plugin-query"
+          - "@tanstack/react-query"
+          - "@tanstack/react-query-devtools"
+      tanstack-router:
+        patterns:
+          - "@tanstack/react-router"
+          - "@tanstack/router-devtools"
+          - "@tanstack/router-vite-plugin"
       types:
         patterns:
           - "@types/*"
