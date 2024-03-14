@@ -5,7 +5,7 @@
     "@commitlint/cli": "^19.1.0",
     "@commitlint/config-conventional": "^19.1.0",
     "@secretlint/secretlint-rule-preset-recommend": "^8.1.2",
-    "@tanstack/eslint-plugin-query": "^5.20.1",
+    "@tanstack/eslint-plugin-query": "^5.27.7",
     "eslint": "^8.57.0",
     "eslint-config-ponko2": "^22.0.0",
     "eslint-config-prettier": "^9.1.0",
