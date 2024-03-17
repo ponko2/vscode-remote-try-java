@@ -1,3 +1,4 @@
+import type { LinkProps } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { cva } from "class-variance-authority";
 import clsx from "clsx";
@@ -40,6 +41,12 @@ export function TodoFooter({
     },
   );
 
+  const links: LinkProps[] = [
+    { to: "/", children: "All" },
+    { to: "/active", children: "Active" },
+    { to: "/completed", children: "Completed" },
+  ];
+
   return (
     <footer
       className={clsx(
@@ -65,18 +72,14 @@ export function TodoFooter({
           "sm:col-auto",
         )}
       >
-        {[
-          { href: "/", text: "All" },
-          { href: "/active", text: "Active" },
-          { href: "/completed", text: "Completed" },
-        ].map(({ href, text }) => (
-          <li className="inline" key={href}>
+        {links.map(({ to, children }) => (
+          <li className="inline" key={to}>
             <Link
               activeProps={{ className: link({ intent: "active" }) }}
               inactiveProps={{ className: link({ intent: "inactive" }) }}
-              to={href}
+              to={to}
             >
-              {text}
+              {children}
             </Link>
           </li>
         ))}
