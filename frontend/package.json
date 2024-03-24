@@ -2,8 +2,8 @@
   "name": "frontend",
   "version": "0.0.1",
   "dependencies": {
-    "@tanstack/react-query": "^5.24.6",
-    "@tanstack/react-query-devtools": "^5.24.6",
+    "@tanstack/react-query": "^5.28.6",
+    "@tanstack/react-query-devtools": "^5.28.6",
     "@tanstack/react-router": "^1.22.3",
     "@tanstack/router-devtools": "^1.22.3",
     "class-variance-authority": "^0.7.0",
