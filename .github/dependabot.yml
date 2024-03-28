@@ -69,6 +69,9 @@ updates:
           - "@tanstack/react-router"
           - "@tanstack/router-devtools"
           - "@tanstack/router-vite-plugin"
+      tsconfig:
+        patterns:
+          - "@tsconfig/*"
       types:
         patterns:
           - "@types/*"
