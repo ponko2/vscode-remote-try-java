@@ -13,7 +13,7 @@ mybatis-test = { module = "org.mybatis.spring.boot:mybatis-spring-boot-starter-t
 nullaway = "com.uber.nullaway:nullaway:0.10.25"
 slf4j = "org.slf4j:slf4j-simple:2.0.12"
 spotbugs = "com.github.spotbugs:spotbugs-annotations:4.8.3"
-springdoc = "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.4.0"
+springdoc = "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0"
 uuid = "com.fasterxml.uuid:java-uuid-generator:5.0.0"
 
 [plugins]
