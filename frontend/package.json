@@ -4,8 +4,8 @@
   "dependencies": {
     "@tanstack/react-query": "^5.29.2",
     "@tanstack/react-query-devtools": "^5.29.2",
-    "@tanstack/react-router": "^1.28.6",
-    "@tanstack/router-devtools": "^1.28.6",
+    "@tanstack/react-router": "^1.28.7",
+    "@tanstack/router-devtools": "^1.28.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "openapi-fetch": "^0.9.3",
