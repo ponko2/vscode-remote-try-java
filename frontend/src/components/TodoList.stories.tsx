@@ -2,14 +2,14 @@ import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
 import { TodoList } from "./TodoList";
 
-const meta: Meta<typeof TodoList> = {
+const meta = {
   component: TodoList,
-};
+} satisfies Meta<typeof TodoList>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Basic: Story = {
+export const Basic = {
   args: {
     deleteTodo: action("deleteTodo"),
     toggleTodo: action("toggleTodo"),
@@ -32,4 +32,4 @@ export const Basic: Story = {
       },
     ],
   },
-};
+} satisfies Story;

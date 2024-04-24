@@ -11,7 +11,7 @@ import { TodoFooter } from "./TodoFooter";
 
 const history = createMemoryHistory({ initialEntries: ["/"] });
 
-const meta: Meta<typeof TodoFooter> = {
+const meta = {
   component: TodoFooter,
   decorators: [
     (Story) => {
@@ -25,23 +25,23 @@ const meta: Meta<typeof TodoFooter> = {
       return <RouterProvider router={router} />;
     },
   ],
-};
+} satisfies Meta<typeof TodoFooter>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Basic: Story = {
+export const Basic = {
   args: {
     clearCompletedTodos: action("clearCompletedTodos"),
     todosCount: 1,
     completedTodosCount: 1,
   },
-};
+} satisfies Story;
 
-export const HasCompleted: Story = {
+export const HasCompleted = {
   args: {
     ...Basic.args,
     todosCount: 2,
     completedTodosCount: 1,
   },
-};
+} satisfies Story;
