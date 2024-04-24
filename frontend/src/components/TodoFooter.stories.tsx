@@ -1,5 +1,5 @@
-import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
+import { fn } from "@storybook/test";
 import {
   RouterProvider,
   createMemoryHistory,
@@ -32,7 +32,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Basic = {
   args: {
-    clearCompletedTodos: action("clearCompletedTodos"),
+    clearCompletedTodos: fn(),
     todosCount: 1,
     completedTodosCount: 1,
   },

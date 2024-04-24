@@ -1,5 +1,5 @@
-import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
+import { fn } from "@storybook/test";
 import { TodoHeader } from "./TodoHeader";
 
 const meta = {
@@ -11,8 +11,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Basic = {
   args: {
-    createTodo: action("createTodo"),
-    toggleAllTodos: action("toggleAllTodos"),
+    createTodo: fn(),
+    toggleAllTodos: fn(),
     todosCount: 0,
     completedTodosCount: 0,
   },

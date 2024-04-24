@@ -1,5 +1,5 @@
-import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
+import { fn } from "@storybook/test";
 import { TodoItem } from "./TodoItem";
 
 const meta = {
@@ -18,9 +18,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Basic = {
   args: {
-    deleteTodo: action("deleteTodo"),
-    toggleTodo: action("toggleTodo"),
-    updateTodo: action("updateTodo"),
+    deleteTodo: fn(),
+    toggleTodo: fn(),
+    updateTodo: fn(),
     todo: {
       id: "01FYH5XVSNVSXTSGB8KB858REF",
       title: "Hello, World!!",
