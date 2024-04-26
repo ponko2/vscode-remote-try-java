@@ -9,8 +9,8 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "openapi-fetch": "^0.9.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
     "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
@@ -27,8 +27,8 @@
     "@testing-library/user-event": "^14.5.2",
     "@tsconfig/strictest": "^2.0.5",
     "@tsconfig/vite-react": "^3.0.2",
-    "@types/react": "^18.2.79",
-    "@types/react-dom": "^18.2.25",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.2.1",
     "@vitest/expect": "^1.5.2",
     "autoprefixer": "^10.4.19",
