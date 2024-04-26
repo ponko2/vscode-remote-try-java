@@ -94,13 +94,3 @@ tasks.withType<Test> { useJUnitPlatform() }
 sourceSets.main {
   java.srcDirs("src/main/java", "build/generated/sources/annotationProcessor/java/main")
 }
-
-tasks.register<Copy>("processFrontendResources") {
-  group = "Frontend"
-  description = "Process frontend resources"
-  dependsOn(project(":frontend").tasks.named("assembleFrontend"))
-  from(project(":frontend").layout.projectDirectory.dir("dist"))
-  into(layout.buildDirectory.dir("resources/main/static"))
-}
-
-tasks.processResources { dependsOn(tasks.named("processFrontendResources")) }

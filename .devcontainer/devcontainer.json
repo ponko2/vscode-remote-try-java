@@ -30,8 +30,6 @@
       "extensions": [
         "EditorConfig.EditorConfig",
         "JoseVSeb.google-java-format-for-vs-code",
-        "bradlc.vscode-tailwindcss",
-        "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "shengchen.vscode-checkstyle",
         "vmware.vscode-boot-dev-pack",

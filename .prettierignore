@@ -2,11 +2,6 @@
 .gradle
 bin/
 build/
-dist/
-dist-ssr/
 node_modules/
-storybook-static/
 out/
 package-lock.json
-frontend/src/api/schema.d.ts
-frontend/src/routeTree.gen.ts

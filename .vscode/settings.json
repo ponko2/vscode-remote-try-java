@@ -3,12 +3,6 @@
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
-  "editor.quickSuggestions": {
-    "strings": "on"
-  },
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
   "java.checkstyle.configuration": "/google_checks.xml",
   "java.checkstyle.properties": {
     "org.checkstyle.google.suppressionfilter.config": "${workspaceFolder}/config/checkstyle/suppressions.xml",
@@ -51,10 +45,6 @@
   "java.format.settings.google.version": "latest",
   "java.project.resourceFilters": ["node", "node_modules", ".git"],
   "java.saveActions.organizeImports": true,
-  "tailwindCSS.experimental.classRegex": [
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
-  ],
   "[java]": {
     "editor.codeActionsOnSave": {
       "source.generate.finalModifiers": "explicit"

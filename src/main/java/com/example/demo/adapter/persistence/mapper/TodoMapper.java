@@ -46,9 +46,6 @@ public interface TodoMapper {
       """)
   void update(@Param("todo") TodoDataModel todo);
 
-  @Delete("""
-        DELETE FROM todos
-        WHERE id = #{todo.id}
-        """)
+  @Delete("DELETE FROM todos WHERE id = #{todo.id}")
   void delete(@Param("todo") TodoDataModel todo);
 }

@@ -41,45 +41,9 @@ updates:
       timezone: Asia/Tokyo
     open-pull-requests-limit: 10
     commit-message:
-      prefix: build
+      prefix: ci
     versioning-strategy: increase
     groups:
       commitlint:
         patterns:
           - "@commitlint/*"
-      react:
-        patterns:
-          - react
-          - react-dom
-      secretlint:
-        patterns:
-          - "@secretlint/*"
-          - secretlint
-      storybook:
-        patterns:
-          - "@storybook/*"
-          - storybook
-      tanstack-query:
-        patterns:
-          - "@tanstack/eslint-plugin-query"
-          - "@tanstack/react-query"
-          - "@tanstack/react-query-devtools"
-      tanstack-router:
-        patterns:
-          - "@tanstack/react-router"
-          - "@tanstack/router-devtools"
-          - "@tanstack/router-vite-plugin"
-      tsconfig:
-        patterns:
-          - "@tsconfig/*"
-      types:
-        patterns:
-          - "@types/*"
-      vite:
-        patterns:
-          - "@vitejs/*"
-          - vite
-      vitest:
-        patterns:
-          - "@vitest/*"
-          - vitest

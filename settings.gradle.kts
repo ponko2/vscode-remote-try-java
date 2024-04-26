@@ -8,4 +8,3 @@
  */
 
 rootProject.name = "demo"
-include("backend", "frontend")
