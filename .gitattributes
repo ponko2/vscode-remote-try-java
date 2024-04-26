@@ -2,11 +2,12 @@
 
 ## Source Code
 *.bat text eol=crlf
+*.cmd text eol=crlf
 *.csv -text
 
-## Gradle Wrapper
-gradlew linguist-generated=true
-gradlew.bat linguist-generated=true
+## Maven Wrapper
+mvnw linguist-generated=true
+mvnw.cmd linguist-generated=true
 
 ## Graphics
 *.ai     filter=lfs diff=lfs merge=lfs -text

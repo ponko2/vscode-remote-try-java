@@ -1,7 +1,6 @@
 *.md
-.gradle
+.mvn
 bin/
-build/
+target/
 node_modules/
-out/
 package-lock.json

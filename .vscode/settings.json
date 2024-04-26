@@ -8,46 +8,19 @@
     "org.checkstyle.google.suppressionfilter.config": "${workspaceFolder}/config/checkstyle/suppressions.xml",
     "org.checkstyle.google.suppressionxpathfilter.config": "${workspaceFolder}/config/checkstyle/suppressions-xpath.xml"
   },
-  "java.checkstyle.version": "10.12.4",
   "java.compile.nullAnalysis.mode": "automatic",
   "java.compile.nullAnalysis.nonnull": ["org.jspecify.annotations.NonNull"],
   "java.compile.nullAnalysis.nonnullbydefault": [
     "org.jspecify.annotations.NullMarked"
   ],
   "java.compile.nullAnalysis.nullable": ["org.jspecify.annotations.Nullable"],
-  "java.completion.favoriteStaticMembers": [
-    "com.github.npathai.hamcrestopt.OptionalMatchers.*",
-    "org.hamcrest.MatcherAssert.*",
-    "org.hamcrest.Matchers.*",
-    "org.junit.Assert.*",
-    "org.junit.Assume.*",
-    "org.junit.jupiter.api.Assertions.*",
-    "org.junit.jupiter.api.Assumptions.*",
-    "org.junit.jupiter.api.DynamicContainer.*",
-    "org.junit.jupiter.api.DynamicTest.*",
-    "org.mockito.Answers.*",
-    "org.mockito.ArgumentMatchers.*",
-    "org.mockito.Mockito.*",
-    "org.springframework.test.util.ReflectionTestUtils.*"
-  ],
-  "java.completion.filteredTypes": [
-    "java.awt.*",
-    "com.sun.*",
-    "sun.*",
-    "jdk.*",
-    "org.graalvm.*",
-    "io.micrometer.shaded.*"
-  ],
   "java.completion.importOrder": ["#", ""],
   "java.configuration.updateBuildConfiguration": "automatic",
-  // Temporary workaround for https://github.com/google/google-java-format/issues/1072
-  "java.format.settings.google.mode": "jar-file",
   "java.format.settings.google.version": "latest",
-  "java.project.resourceFilters": ["node", "node_modules", ".git"],
-  "java.saveActions.organizeImports": true,
   "[java]": {
     "editor.codeActionsOnSave": {
-      "source.generate.finalModifiers": "explicit"
+      "source.generate.finalModifiers": "explicit",
+      "source.organizeImports": "explicit"
     },
     "editor.defaultFormatter": "josevseb.google-java-format-for-vs-code"
   }

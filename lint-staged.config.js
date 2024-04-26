@@ -1,4 +1,5 @@
 export default {
   "*.{css,js,json,jsx,mjs,scss,ts,tsx,yml}": "prettier --write",
-  "*.{gradle.kts,java}": () => "./gradlew spotlessApply",
+  "*.java": (filenames) =>
+    `./mvnw spotless:apply -DspotlessFiles=${filenames.join(",")}`,
 };

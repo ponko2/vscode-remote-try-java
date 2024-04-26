@@ -24,7 +24,7 @@ updates:
     open-pull-requests-limit: 10
     commit-message:
       prefix: ci
-  - package-ecosystem: gradle
+  - package-ecosystem: maven
     directory: /
     schedule:
       interval: daily

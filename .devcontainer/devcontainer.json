@@ -17,7 +17,7 @@
   "forwardPorts": [3306, 8080],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "sudo chown vscode:vscode node_modules",
+  // "postCreateCommand": "java -version",
 
   // Configure tool-specific properties.
   "customizations": {
@@ -33,7 +33,6 @@
         "esbenp.prettier-vscode",
         "shengchen.vscode-checkstyle",
         "vmware.vscode-boot-dev-pack",
-        "vscjava.vscode-gradle",
         "vscjava.vscode-java-pack"
       ]
     }

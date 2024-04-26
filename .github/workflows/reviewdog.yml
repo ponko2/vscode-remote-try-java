@@ -35,8 +35,8 @@ jobs:
         with:
           distribution: corretto
           java-version: 17
-      - uses: gradle/actions/setup-gradle@v3
-      - run: ./gradlew spotlessApply
+          cache: maven
+      - run: ./mvnw -B -ntp spotless:apply
       - uses: reviewdog/action-suggester@v1
         with:
           fail_on_error: true

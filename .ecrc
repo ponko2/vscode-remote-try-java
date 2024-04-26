@@ -1,5 +1,5 @@
 {
-  "Exclude": ["gradlew.bat"],
+  "Exclude": ["mvnw.cmd"],
   "Disable": {
     "IndentSize": true
   }
