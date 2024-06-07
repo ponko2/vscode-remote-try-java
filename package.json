@@ -9,11 +9,13 @@
     "lint-staged": "^15.2.5",
     "prettier": "3.3.1"
   },
+  "packageManager": "pnpm@9.2.0",
   "private": true,
   "scripts": {
-    "fix": "npm run lint -- --write",
-    "lint": "prettier . --check",
-    "prepare": "is-ci || husky"
+    "fix": "prettier --write .",
+    "lint": "prettier --check .",
+    "prepare": "is-ci || husky",
+    "setup": "corepack enable pnpm"
   },
   "type": "module"
 }
