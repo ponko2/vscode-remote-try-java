@@ -5,9 +5,9 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 /** TodoResponse. */
 public record TodoResponse(
-    @Schema(required = true) String id,
-    @Schema(required = true) String title,
-    @Schema(required = true) boolean completed) {
+    @Schema(requiredMode = Schema.RequiredMode.REQUIRED) String id,
+    @Schema(requiredMode = Schema.RequiredMode.REQUIRED) String title,
+    @Schema(requiredMode = Schema.RequiredMode.REQUIRED) boolean completed) {
 
   public TodoResponse(final TodoResult todo) {
     this(todo.id(), todo.title(), todo.completed());

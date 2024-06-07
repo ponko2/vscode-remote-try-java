@@ -145,6 +145,7 @@
             </goals>
             <configuration>
               <compilerArgs>
+                <arg>-Xlint</arg>
                 <arg>-XDcompilePolicy=simple</arg>
                 <arg>-Xplugin:ErrorProne -Xep:NullAway:ERROR -XepOpt:NullAway:AnnotatedPackages=com.example</arg>
               </compilerArgs>

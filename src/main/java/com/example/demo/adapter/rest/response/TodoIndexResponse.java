@@ -5,4 +5,5 @@ import java.util.Collection;
 import org.jspecify.annotations.NonNull;
 
 /** TodoIndexResponse. */
-public record TodoIndexResponse(@Schema(required = true) Collection<@NonNull TodoResponse> todos) {}
+public record TodoIndexResponse(
+    @Schema(requiredMode = Schema.RequiredMode.REQUIRED) Collection<@NonNull TodoResponse> todos) {}
