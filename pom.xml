@@ -26,7 +26,7 @@
     <jspecify.version>0.3.0</jspecify.version>
     <mybatis-spring-boot-starter.version>3.0.3</mybatis-spring-boot-starter.version>
     <nullaway.version>0.11.0</nullaway.version>
-    <spotbugs-annotations.version>4.8.5</spotbugs-annotations.version>
+    <spotbugs-annotations.version>4.8.6</spotbugs-annotations.version>
     <springdoc-openapi-starter-webmvc-ui.version>2.5.0</springdoc-openapi-starter-webmvc-ui.version>
   </properties>
   <dependencies>
