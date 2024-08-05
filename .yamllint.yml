@@ -1,12 +1,15 @@
 ---
 extends: default
+ignore: |
+  pnpm-lock.yaml
 rules:
   comments-indentation: disable
   document-start:
     ignore: |
       .github/
-      docker-compose.yml
-      docker-compose.*.yml
+      application.yml
+      application-*.yml
+      compose.yaml
   line-length: disable
   octal-values:
     forbid-implicit-octal: true
