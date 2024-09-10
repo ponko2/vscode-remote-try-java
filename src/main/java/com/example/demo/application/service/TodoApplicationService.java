@@ -11,13 +11,18 @@ import com.example.demo.application.result.TodoGetResult;
 /** TodoApplicationService. */
 public interface TodoApplicationService {
 
+  /** Get. */
   TodoGetResult get(TodoGetCommand command);
 
+  /** Get all. */
   TodoGetAllResult getAll();
 
+  /** Create. */
   TodoCreateResult create(TodoCreateCommand command);
 
+  /** Update. */
   void update(TodoUpdateCommand command);
 
+  /** Delete. */
   void delete(TodoDeleteCommand command);
 }

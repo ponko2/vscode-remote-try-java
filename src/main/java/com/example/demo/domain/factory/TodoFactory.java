@@ -6,5 +6,6 @@ import com.example.demo.domain.model.TodoTitle;
 /** TodoFactory. */
 public interface TodoFactory {
 
+  /** Create. */
   public Todo create(TodoTitle title);
 }

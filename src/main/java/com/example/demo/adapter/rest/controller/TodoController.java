@@ -35,6 +35,7 @@ public class TodoController {
 
   private final TodoApplicationService todoApplicationService;
 
+  /** TodoController. */
   public TodoController(final TodoApplicationService todoApplicationService) {
     this.todoApplicationService = todoApplicationService;
   }
