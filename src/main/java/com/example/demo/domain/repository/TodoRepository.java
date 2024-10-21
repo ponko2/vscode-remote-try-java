@@ -8,11 +8,15 @@ import java.util.Optional;
 /** TodoRepository. */
 public interface TodoRepository {
 
+  /** Find all. */
   Collection<Todo> findAll();
 
+  /** Find. */
   Optional<Todo> find(TodoId id);
 
+  /** Save. */
   void save(Todo todo);
 
+  /** Delete. */
   void delete(Todo todo);
 }
